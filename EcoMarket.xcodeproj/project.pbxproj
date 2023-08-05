@@ -9,21 +9,34 @@
 /* Begin PBXBuildFile section */
 		414D3F882A7D515F006BCC53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F872A7D515F006BCC53 /* AppDelegate.swift */; };
 		414D3F8A2A7D515F006BCC53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F892A7D515F006BCC53 /* SceneDelegate.swift */; };
-		414D3F8C2A7D515F006BCC53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F8B2A7D515F006BCC53 /* ViewController.swift */; };
+		414D3F8C2A7D515F006BCC53 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F8B2A7D515F006BCC53 /* MainViewController.swift */; };
 		414D3F8F2A7D515F006BCC53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414D3F8D2A7D515F006BCC53 /* Main.storyboard */; };
 		414D3F912A7D5160006BCC53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 414D3F902A7D5160006BCC53 /* Assets.xcassets */; };
 		414D3F942A7D5160006BCC53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414D3F922A7D5160006BCC53 /* LaunchScreen.storyboard */; };
+		414D3F9D2A7D5C3C006BCC53 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 414D3F9C2A7D5C3C006BCC53 /* SnapKit */; };
+		414D3F9F2A7D5CC4006BCC53 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F9E2A7D5CC4006BCC53 /* TabBarController.swift */; };
+		414D3FA32A7D5EA8006BCC53 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FA22A7D5EA8006BCC53 /* CategoryCell.swift */; };
+		414D3FA72A7D6CAA006BCC53 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FA62A7D6CAA006BCC53 /* Category.swift */; };
+		414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FAC2A7D807A006BCC53 /* ViewModel.swift */; };
+		414D3FAF2A7D8311006BCC53 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FAE2A7D8311006BCC53 /* NetworkMonitor.swift */; };
+		414D3FB52A7D9CC2006BCC53 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FB42A7D9CC2006BCC53 /* CustomAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		414D3F842A7D515F006BCC53 /* EcoMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		414D3F872A7D515F006BCC53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		414D3F892A7D515F006BCC53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		414D3F8B2A7D515F006BCC53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		414D3F8B2A7D515F006BCC53 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		414D3F8E2A7D515F006BCC53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		414D3F902A7D5160006BCC53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		414D3F932A7D5160006BCC53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		414D3F952A7D5160006BCC53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		414D3F9E2A7D5CC4006BCC53 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		414D3FA22A7D5EA8006BCC53 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		414D3FA62A7D6CAA006BCC53 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		414D3FAC2A7D807A006BCC53 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		414D3FAE2A7D8311006BCC53 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		414D3FB42A7D9CC2006BCC53 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414D3F9D2A7D5C3C006BCC53 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +72,75 @@
 			children = (
 				414D3F872A7D515F006BCC53 /* AppDelegate.swift */,
 				414D3F892A7D515F006BCC53 /* SceneDelegate.swift */,
-				414D3F8B2A7D515F006BCC53 /* ViewController.swift */,
+				414D3FA02A7D5E69006BCC53 /* Screens */,
 				414D3F8D2A7D515F006BCC53 /* Main.storyboard */,
+				414D3F9E2A7D5CC4006BCC53 /* TabBarController.swift */,
 				414D3F902A7D5160006BCC53 /* Assets.xcassets */,
 				414D3F922A7D5160006BCC53 /* LaunchScreen.storyboard */,
 				414D3F952A7D5160006BCC53 /* Info.plist */,
 			);
 			path = EcoMarket;
+			sourceTree = "<group>";
+		};
+		414D3FA02A7D5E69006BCC53 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				414D3FA12A7D5E71006BCC53 /* MainScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		414D3FA12A7D5E71006BCC53 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				419482E92A7E6CA300EE5F54 /* Controllers */,
+				414D3FB32A7D8E47006BCC53 /* ViewModel */,
+				414D3FB12A7D8E2F006BCC53 /* Monitor */,
+				414D3FB02A7D8E24006BCC53 /* Model */,
+				414D3FB22A7D8E3E006BCC53 /* Cell */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		414D3FB02A7D8E24006BCC53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				414D3FA62A7D6CAA006BCC53 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		414D3FB12A7D8E2F006BCC53 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				414D3FAE2A7D8311006BCC53 /* NetworkMonitor.swift */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		414D3FB22A7D8E3E006BCC53 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				414D3FA22A7D5EA8006BCC53 /* CategoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		414D3FB32A7D8E47006BCC53 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				414D3FAC2A7D807A006BCC53 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		419482E92A7E6CA300EE5F54 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				414D3F8B2A7D515F006BCC53 /* MainViewController.swift */,
+				414D3FB42A7D9CC2006BCC53 /* CustomAlert.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +159,9 @@
 			dependencies = (
 			);
 			name = EcoMarket;
+			packageProductDependencies = (
+				414D3F9C2A7D5C3C006BCC53 /* SnapKit */,
+			);
 			productName = EcoMarket;
 			productReference = 414D3F842A7D515F006BCC53 /* EcoMarket.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +190,9 @@
 				Base,
 			);
 			mainGroup = 414D3F7B2A7D515F006BCC53;
+			packageReferences = (
+				414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 414D3F852A7D515F006BCC53 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +220,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				414D3F8C2A7D515F006BCC53 /* ViewController.swift in Sources */,
+				414D3F8C2A7D515F006BCC53 /* MainViewController.swift in Sources */,
+				414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */,
 				414D3F882A7D515F006BCC53 /* AppDelegate.swift in Sources */,
+				414D3FB52A7D9CC2006BCC53 /* CustomAlert.swift in Sources */,
+				414D3F9F2A7D5CC4006BCC53 /* TabBarController.swift in Sources */,
 				414D3F8A2A7D515F006BCC53 /* SceneDelegate.swift in Sources */,
+				414D3FA32A7D5EA8006BCC53 /* CategoryCell.swift in Sources */,
+				414D3FAF2A7D8311006BCC53 /* NetworkMonitor.swift in Sources */,
+				414D3FA72A7D6CAA006BCC53 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +446,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		414D3F9C2A7D5C3C006BCC53 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 414D3F7C2A7D515F006BCC53 /* Project object */;
 }
