@@ -60,7 +60,9 @@ class CategoryCell: UICollectionViewCell {
     }
     
     func configure(_ category: Category) {
-        image.image = UIImage(named: category.image)
+        if let imageOfCategory = category.image {
+            image.image = UIImage(named: imageOfCategory)
+        }
         title.text = category.name
     }
     

@@ -11,7 +11,6 @@ import SnapKit
 
 class CustomAlert {
     
-    
     struct Constants {
         static let backgroundAlpha: CGFloat = 0.8
     }

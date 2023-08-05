@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         setupConstraints()
-        categories = viewModel.categories
+        callToViewModelForUIUpdate()
         checkConnection()
         
     }
@@ -53,7 +53,20 @@ class MainViewController: UIViewController {
         NetworkMonitor.shared.isConnected ? nil : vc.showAlert(vc: self) 
     }
     
-  
+    func callToViewModelForUIUpdate() {
+
+        self.viewModel.bindViewModelToController = {
+            self.updateDataSource()
+        }
+    }
+    
+    func updateDataSource(){
+        DispatchQueue.main.async { [self] in
+            guard let data = viewModel.empData else { return }
+            categories = data
+            collection.reloadData()
+        }
+    }
     
     func setupConstraints() {
         collection.snp.makeConstraints { make in
@@ -76,7 +89,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let vc = ProductsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

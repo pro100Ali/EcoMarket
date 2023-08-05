@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ViewModel: NSObject {
+class ProductViewModel: NSObject {
     
     private var apiCaller: APICaller!
     
-    private(set) var empData : [Category]! {
+    private(set) var empData : [Product]! {
            didSet {
                self.bindViewModelToController()
            }
@@ -27,7 +27,7 @@ class ViewModel: NSObject {
     }
     
     func callFuncToGetEmpData() {
-        self.apiCaller.getAllCategories { res in
+        self.apiCaller.getAllProducts { res in
             switch res {
             case .success(let success):
                 self.empData = success
@@ -38,3 +38,4 @@ class ViewModel: NSObject {
         }
     }
 }
+
