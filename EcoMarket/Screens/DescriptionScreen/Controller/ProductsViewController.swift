@@ -16,6 +16,13 @@ class ProductsViewController: UIViewController {
     var filteredProducts = [Product]()
     var searching = false
     
+    var basketProduct = [Product]()
+
+    
+    lazy private var textFieldHeightConstraint: NSLayoutConstraint = {
+        return textField.heightAnchor.constraint(equalToConstant: 50)
+    }()
+    
     lazy private var textField: UITextField = {
         let field = UITextField()
         field.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
@@ -36,19 +43,26 @@ class ProductsViewController: UIViewController {
         return field
     }()
     
+    var headerView = HeaderView()
+    
     lazy private var collection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 183, height: 260)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.identifier)
+        collection.showsVerticalScrollIndicator = false
         return collection
     }()
+    
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(collection)
         view.addSubview(textField)
+        view.addSubview(headerView)
         collection.delegate = self
         collection.dataSource = self
         setupConstraints()
@@ -99,19 +113,28 @@ class ProductsViewController: UIViewController {
         textField.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(50)
+            make.height.equalTo(textFieldHeightConstraint.constant)
+        }
+        headerView.snp.makeConstraints { make in
+            make.top.equalTo(textField.snp.bottom).offset(16)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.04)
         }
         collection.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview()
-            make.top.equalTo(textField.snp.bottom).offset(20)
+            make.top.equalTo(headerView.snp.bottom)
         }
+       
+
     }
+    
     
 }
 
 
-extension ProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
+extension ProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searching {
             return filteredProducts.count
@@ -126,13 +149,53 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as? ProductCell else { return UICollectionViewCell()}
         
         if searching {
-            
             cell.configure(filteredProducts[indexPath.row])
         }
         else {
             cell.configure(products[indexPath.row])
-            
         }
+        
+        cell.addButtonTapHandler = { [weak self] in
+            guard let current = self?.products[indexPath.row] else {return}
+            var productToAdd = Product(id: current.id, title: current.title, description: current.description, image: current.image, quantity: current.quantity, price: current.price)
+            self?.basketProduct.append(productToAdd)
+            
+            
+            print(productToAdd)
+        }
+        
+        cell.plusButtonTapHandler = { [weak self] in
+            guard let currentID = self?.products[indexPath.row].id else {return}
+            
+            for (i, index) in self!.basketProduct.enumerated() {
+                index.id == currentID ? self!.basketProduct[i].quantity! += 1 : print("Aroso")
+                cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
+                print(self!.basketProduct[i])
+            }
+            print(self!.basketProduct)
+        }
+        
+        cell.minusButtonTapHandler = { [weak self] in
+            guard let currentID = self?.products[indexPath.row].id else {return}
+            
+            for (i, index) in self!.basketProduct.enumerated() {
+                if self!.basketProduct[i].quantity! != 1 {
+                    index.id == currentID ? self!.basketProduct[i].quantity! -= 1 : print("Aroso")
+                    cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
+                    print(self!.basketProduct[i])
+
+                }
+                else {
+                    print("already zero")
+                    cell.showAddButton()
+                }
+            }
+            print(self!.basketProduct)
+        }
+        
+        
+        
+  
         return cell
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -140,6 +203,9 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         return true
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0)
+    }
     
 }
 

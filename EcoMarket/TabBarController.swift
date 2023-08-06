@@ -13,7 +13,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
 
         let vc1 = UINavigationController(rootViewController: MainViewController())
-        let vc2 = UINavigationController(rootViewController: ProductsViewController())
+        let vc2 = UINavigationController(rootViewController: BasketViewController())
         let vc3 = MainViewController()
         let vc4 = MainViewController()
         

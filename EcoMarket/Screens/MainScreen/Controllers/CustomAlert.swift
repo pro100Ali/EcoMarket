@@ -11,9 +11,7 @@ import SnapKit
 
 class CustomAlert {
     
-    struct Constants {
-        static let backgroundAlpha: CGFloat = 0.8
-    }
+    
     
     private let backgroundView: UIView = {
         let view = UIView()
@@ -101,7 +99,7 @@ class CustomAlert {
         }
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.backgroundView.alpha = Constants.backgroundAlpha
+            self.backgroundView.alpha = 0.8
         }) { done in
             if done {
                 UIView.animate(withDuration: 0.3) {
