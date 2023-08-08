@@ -67,6 +67,14 @@ class BasketCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(_ product: Product) {
+        title.text = product.title
+        price.text = product.price
+        guard let quantity = product.quantity else {return}
+        buttonPlus.score.text = "\(String(describing: quantity))"
+        descriptionOfProduct.text = product.description
+    }
     func setupConstraints() {
         buttonPlus.snp.makeConstraints { make in
 //            make.bottom.equalToSuperview().inset(4)

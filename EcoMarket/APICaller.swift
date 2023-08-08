@@ -44,9 +44,9 @@ class APICaller {
         
     }
     
-    func getAllProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
+    func getAllProducts(_ id: Int, completion: @escaping (Result<[Product], Error>) -> Void) {
         
-        let urlString = "http://142.93.101.70:8000/product-list/"
+        let urlString = "http://142.93.101.70:8000/product-list/?category=\(id)"
         
         let url = URL(string: urlString)
         

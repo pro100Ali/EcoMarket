@@ -90,6 +90,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ProductsViewController()
+        vc.selectedCategory = categories[indexPath.row].id!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

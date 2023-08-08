@@ -26,6 +26,8 @@ class ViewModel: NSObject {
 
     }
     
+    
+    
     func callFuncToGetEmpData() {
         self.apiCaller.getAllCategories { res in
             switch res {

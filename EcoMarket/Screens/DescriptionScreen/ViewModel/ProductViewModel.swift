@@ -26,8 +26,17 @@ class ProductViewModel: NSObject {
 
     }
     
+    func getProducts(for categoryID: Int) -> [Product] {
+        if categoryID == 0 {
+            return empData
+        }
+        else {
+            return empData.filter { $0.category == categoryID }
+        }
+    }
+    
     func callFuncToGetEmpData() {
-        self.apiCaller.getAllProducts { res in
+        self.apiCaller.getAllProducts(1) { res in
             switch res {
             case .success(let success):
                 self.empData = success

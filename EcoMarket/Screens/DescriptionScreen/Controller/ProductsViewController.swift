@@ -10,15 +10,17 @@ import SnapKit
 
 class ProductsViewController: UIViewController {
     
+    
+    
     let searchController = UISearchController()
     let viewModel = ProductViewModel()
     var products: [Product] = []
     var filteredProducts = [Product]()
     var searching = false
+    var selectedCategory: Int = 0
     
     var basketProduct = [Product]()
 
-    
     lazy private var textFieldHeightConstraint: NSLayoutConstraint = {
         return textField.heightAnchor.constraint(equalToConstant: 50)
     }()
@@ -55,7 +57,7 @@ class ProductsViewController: UIViewController {
     }()
     
     
- 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +70,8 @@ class ProductsViewController: UIViewController {
         setupConstraints()
         title = "Продукты"
         callToViewModelForUIUpdate()
+        headerView.delegate = self
+
         
     }
     
@@ -102,8 +106,11 @@ class ProductsViewController: UIViewController {
     
     func updateDataSource(){
         DispatchQueue.main.async { [self] in
-            guard let data = viewModel.empData else { return }
-            products = data
+//            guard let data = viewModel.empData else { return }
+            
+            products = viewModel.getProducts(for: selectedCategory)
+            headerView.selectedIndex = IndexPath(item: selectedCategory, section: 0)
+
             collection.reloadData()
         }
     }
@@ -118,7 +125,7 @@ class ProductsViewController: UIViewController {
         headerView.snp.makeConstraints { make in
             make.top.equalTo(textField.snp.bottom).offset(16)
             make.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.04)
+            make.height.equalToSuperview().multipliedBy(0.05)
         }
         collection.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
@@ -158,20 +165,27 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         cell.addButtonTapHandler = { [weak self] in
             guard let current = self?.products[indexPath.row] else {return}
             var productToAdd = Product(id: current.id, title: current.title, description: current.description, image: current.image, quantity: current.quantity, price: current.price)
+            
             self?.basketProduct.append(productToAdd)
-            
-            
+            BasketManager.shared.addProductToBasket(productToAdd)
+
             print(productToAdd)
         }
         
         cell.plusButtonTapHandler = { [weak self] in
             guard let currentID = self?.products[indexPath.row].id else {return}
             
+
             for (i, index) in self!.basketProduct.enumerated() {
+                	
                 index.id == currentID ? self!.basketProduct[i].quantity! += 1 : print("Aroso")
+                
+                BasketManager.shared.updateQuantity(for: currentID, quantity: self!.basketProduct[i].quantity!)
+                
                 cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
-                print(self!.basketProduct[i])
             }
+
+
             print(self!.basketProduct)
         }
         
@@ -183,19 +197,17 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
                     index.id == currentID ? self!.basketProduct[i].quantity! -= 1 : print("Aroso")
                     cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
                     print(self!.basketProduct[i])
-
+                    BasketManager.shared.updateQuantity(for: currentID, quantity: self!.basketProduct[i].quantity!)
                 }
                 else {
                     print("already zero")
                     cell.showAddButton()
                 }
             }
+
             print(self!.basketProduct)
         }
-        
-        
-        
-  
+     
         return cell
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -209,3 +221,12 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
     
 }
 
+
+extension ProductsViewController: ShowTheProducts {
+    func changeSelected(_ id: Int) {
+        self.selectedCategory = id
+        updateDataSource()
+    }
+    
+    
+}

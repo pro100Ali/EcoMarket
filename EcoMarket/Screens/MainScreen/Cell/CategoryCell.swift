@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class CategoryCell: UICollectionViewCell {
     
@@ -60,9 +61,11 @@ class CategoryCell: UICollectionViewCell {
     }
     
     func configure(_ category: Category) {
-        if let imageOfCategory = category.image {
-            image.image = UIImage(named: imageOfCategory)
+        if let urlImage = category.image {
+            image.kf.setImage(with: URL(string: urlImage))
         }
+        
+        
         title.text = category.name
     }
     

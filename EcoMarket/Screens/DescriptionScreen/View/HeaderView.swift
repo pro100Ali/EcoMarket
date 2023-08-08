@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol ShowTheProducts: AnyObject {
+    func changeSelected(_ id: Int)
+}
+
 class HeaderView: UIView {
     
     var categories: [Category] = []
@@ -15,8 +19,9 @@ class HeaderView: UIView {
     var selectedIndex: IndexPath?
 
     var viewModel: ViewModel!
-    let itemsArray = ["Item 1", "Long Text for Item 2", "Another Item"]
 
+    var delegate: ShowTheProducts?
+    
     lazy private var mainView: UIView = {
        let view = UIView()
         return view
@@ -61,14 +66,14 @@ class HeaderView: UIView {
         
         viewModel = ViewModel()
         self.viewModel.bindViewModelToController = {
-        self.updateDataSource()
+            self.updateDataSource()
         }
         
     }
     
-    func updateDataSource(){
+    func updateDataSource() {
            DispatchQueue.main.async {
-               self.categories = [Category(id: 1, name: "All", image: "assa")] + self.viewModel.empData // Update the categories array
+               self.categories = [Category(id: 0, name: "All", image: "assa")] + self.viewModel.empData // Update the categories array
                self.collection.reloadData()
            }
        }
@@ -114,9 +119,14 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
 
         guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
         
-        UIView.transition(with: cell, duration: 0.5, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: cell, duration: 0.3, options: .transitionCrossDissolve, animations: {
             cell.configureSelection(.white, Constants.green, 0)
+            
+            self.delegate?.changeSelected(self.categories[indexPath.row].id!)
+            print(self.categories[indexPath.row].id!)
         }, completion: nil)
+        
+        
 
 //        delegate?.showTheSurah(arrayOfSurahs[indexPath.row])
     }
@@ -124,7 +134,7 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
         
-        UIView.transition(with: cell, duration: 0.5, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: cell, duration: 0.3, options: .transitionCrossDissolve, animations: {
             
             cell.configureSelection(Constants.gray, .white, 1)
         }, completion: nil)

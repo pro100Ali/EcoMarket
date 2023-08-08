@@ -13,11 +13,11 @@ struct Colors {
 }
 
 
-
 class ProductCell: UICollectionViewCell, ButtonIsClicked {
     
         func plusButtonIsClicked() {
             plusButtonTapHandler?()
+            
         }
         
         func minusButtonIsClicked() {

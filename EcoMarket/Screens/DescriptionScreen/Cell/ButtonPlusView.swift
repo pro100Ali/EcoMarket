@@ -47,7 +47,7 @@ class ButtonPlusView: UIView {
         return button
     }()
     
-    lazy private var score: UILabel = {
+     var score: UILabel = {
        let label = UILabel()
         label.text = "1"
         label.textColor = .black
