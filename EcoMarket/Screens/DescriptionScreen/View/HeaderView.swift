@@ -16,7 +16,9 @@ class HeaderView: UIView {
     
     var categories: [Category] = []
 
-    var selectedIndex: IndexPath?
+    var selectedIndex: IndexPath = IndexPath(item: 2, section: 0)
+
+    var selectedIndex2: IndexPath?
 
     var viewModel: ViewModel!
 
@@ -27,7 +29,7 @@ class HeaderView: UIView {
         return view
     }()
     
-    lazy private var collection: UICollectionView  = {
+     var collection: UICollectionView  = {
        let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: 35)
         layout.scrollDirection = .horizontal
@@ -74,6 +76,7 @@ class HeaderView: UIView {
     func updateDataSource() {
            DispatchQueue.main.async {
                self.categories = [Category(id: 0, name: "All", image: "assa")] + self.viewModel.empData // Update the categories array
+               
                self.collection.reloadData()
            }
        }
@@ -89,6 +92,7 @@ class HeaderView: UIView {
 
 
 extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
@@ -96,18 +100,22 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SegmentCollectionViewCell else { return UICollectionViewCell() }
         
-   
-        cell.label.text = categories[indexPath.row].name
-             
-         
         
+        cell.label.text = categories[indexPath.row].name
+        
+       
         UIView.transition(with: cell, duration: 0.8, options: .transitionCrossDissolve, animations: { [self] in
 
             cell.configureSelection((indexPath == selectedIndex) ? .white : Constants.gray, (indexPath == selectedIndex) ? Constants.green : .white, 1)
-
+            
+            
         }, completion: nil)
         
       
+        if let firstIndex = selectedIndex2 {
+            cell.configureSelection((indexPath == firstIndex) ? .white : Constants.gray, (indexPath == firstIndex) ? Constants.green : .white, 1)
+        }
+        
         
 
         return cell
@@ -116,19 +124,22 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Store the selected index
         selectedIndex = indexPath
-
-        guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
         
+        guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
+
         UIView.transition(with: cell, duration: 0.3, options: .transitionCrossDissolve, animations: {
             cell.configureSelection(.white, Constants.green, 0)
-            
+                
             self.delegate?.changeSelected(self.categories[indexPath.row].id!)
             print(self.categories[indexPath.row].id!)
         }, completion: nil)
         
-        
 
-//        delegate?.showTheSurah(arrayOfSurahs[indexPath.row])
+        if let firstIndex = selectedIndex2 {
+            guard let cell = collectionView.cellForItem(at: firstIndex) as? SegmentCollectionViewCell else { return }
+            cell.configureSelection(Constants.gray, .white, 1)
+        }
+        selectedIndex2 = nil
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -141,7 +152,7 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     
         
         if selectedIndex == indexPath {
-            selectedIndex = nil
+            selectedIndex = indexPath
         }
 
     }

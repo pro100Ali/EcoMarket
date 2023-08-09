@@ -11,11 +11,7 @@ import SnapKit
 class BasketViewController: UIViewController {
     
     
-    
-    
-    
-    
-    
+
     var basketProducts: [Product] = [Product(id: 1, title: "as", description: "sa", image: "as", price: "12"), Product(id: 2, title: "as", description: "sa", image: "as", price: "12")]
     
     lazy private var collection: UICollectionView = {

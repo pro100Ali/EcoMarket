@@ -33,6 +33,7 @@ class ViewModel: NSObject {
             switch res {
             case .success(let success):
                 self.empData = success
+                self.empData.sort { $0.id! < $1.id! }
 
             case .failure(let failure):
                 print("Error", failure)

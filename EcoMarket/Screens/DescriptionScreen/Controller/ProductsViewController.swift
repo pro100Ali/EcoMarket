@@ -107,10 +107,9 @@ class ProductsViewController: UIViewController {
     func updateDataSource(){
         DispatchQueue.main.async { [self] in
 //            guard let data = viewModel.empData else { return }
-            
             products = viewModel.getProducts(for: selectedCategory)
-            headerView.selectedIndex = IndexPath(item: selectedCategory, section: 0)
-
+            headerView.selectedIndex2 = IndexPath(item: selectedCategory, section: 0)
+            
             collection.reloadData()
         }
     }
@@ -164,7 +163,7 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         
         cell.addButtonTapHandler = { [weak self] in
             guard let current = self?.products[indexPath.row] else {return}
-            var productToAdd = Product(id: current.id, title: current.title, description: current.description, image: current.image, quantity: current.quantity, price: current.price)
+            let productToAdd = Product(id: current.id, title: current.title, description: current.description, image: current.image, quantity: current.quantity, price: current.price)
             
             self?.basketProduct.append(productToAdd)
             BasketManager.shared.addProductToBasket(productToAdd)
@@ -196,7 +195,6 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
                 if self!.basketProduct[i].quantity! != 1 {
                     index.id == currentID ? self!.basketProduct[i].quantity! -= 1 : print("Aroso")
                     cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
-                    print(self!.basketProduct[i])
                     BasketManager.shared.updateQuantity(for: currentID, quantity: self!.basketProduct[i].quantity!)
                 }
                 else {
