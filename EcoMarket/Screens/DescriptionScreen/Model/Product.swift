@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable, Hashable {
+struct Product: Codable, Hashable{
     let id: Int?
     let title: String?
     let description: String?
@@ -15,4 +15,5 @@ struct Product: Codable, Hashable {
     var quantity: Int?
     var category: Int?
     let price: String?
+    var isAdded: Bool?
 }

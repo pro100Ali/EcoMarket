@@ -8,7 +8,12 @@
 import UIKit
 import SnapKit
 
-class BasketCell: UICollectionViewCell {
+class BasketCell: UICollectionViewCell  {
+    
+  
+    var product: Product?
+    var indexPath: IndexPath?
+    var updateCollection: (() -> Void)?
     
     static let identifier = "BasketCell"
 
@@ -48,6 +53,17 @@ class BasketCell: UICollectionViewCell {
         return label
     }()
 
+    lazy private var trash: UIButton = {
+       let image = UIButton()
+        image.setImage(UIImage(named: "trash"), for: .normal)
+        image.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
+        return image
+    }()
+    
+    @objc func actionButton() {
+        BasketManager.shared.removeById((product?.id)!)
+        updateCollection?()
+    }
    
     let buttonPlus = ButtonPlusView()
     
@@ -56,16 +72,24 @@ class BasketCell: UICollectionViewCell {
         layer.cornerRadius = 15
 
         addSubview(image)
+        contentView.addSubview(trash)
         addSubview(price)
         addSubview(title)
         addSubview(descriptionOfProduct)
         contentView.addSubview(buttonPlus)
         contentView.bringSubviewToFront(buttonPlus)
         setupConstraints()
+        buttonPlus.delegate = self
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureProduct(_ product: Product, _ indexPath: IndexPath) {
+        self.indexPath = indexPath
+        self.product = product
     }
     
     func configure(_ product: Product) {
@@ -75,6 +99,9 @@ class BasketCell: UICollectionViewCell {
         buttonPlus.score.text = "\(String(describing: quantity))"
         descriptionOfProduct.text = product.description
     }
+    
+    
+    
     func setupConstraints() {
         buttonPlus.snp.makeConstraints { make in
 //            make.bottom.equalToSuperview().inset(4)
@@ -100,5 +127,24 @@ class BasketCell: UICollectionViewCell {
             make.leading.equalTo(image.snp.trailing).offset(8)
             make.bottom.equalTo(image.snp.bottom)
         }
+        trash.snp.makeConstraints { make in
+            make.leading.bottom.equalToSuperview().inset(2)
+        }
     }
+}
+
+
+extension BasketCell: ButtonIsClicked {
+    
+    func plusButtonIsClicked() {
+        
+        BasketManager.shared.plusQuantity(for: product!)
+
+    }
+    
+    func minusButtonIsClicked() {
+        BasketManager.shared.minusQuantity(for: product!)
+
+    }
+    
 }

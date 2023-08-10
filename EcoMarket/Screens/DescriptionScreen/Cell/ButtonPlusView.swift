@@ -78,10 +78,7 @@ class ButtonPlusView: UIView {
         circleMinus.addSubview(minusButton)
         setupConstraints()
         
-        self.backgroundColor = UIColor.yellow.withAlphaComponent(0.3)
-               // or
-               self.layer.borderWidth = 1.0
-               self.layer.borderColor = UIColor.red.cgColor
+  
 
     }
     

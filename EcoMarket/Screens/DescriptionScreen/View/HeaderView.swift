@@ -16,7 +16,7 @@ class HeaderView: UIView {
     
     var categories: [Category] = []
 
-    var selectedIndex: IndexPath = IndexPath(item: 2, section: 0)
+    var selectedIndex: IndexPath?
 
     var selectedIndex2: IndexPath?
 
@@ -118,25 +118,31 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Store the selected index
-        selectedIndex = indexPath
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
-
-        UIView.transition(with: cell, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            cell.configureSelection(.white, Constants.green, 0)
+        if selectedIndex != indexPath {
+            
+            selectedIndex = indexPath
+            
+            guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
+            
+            UIView.transition(with: cell, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                cell.configureSelection(.white, Constants.green, 0)
                 
-            self.delegate?.changeSelected(self.categories[indexPath.row].id!)
-            print(self.categories[indexPath.row].id!)
-        }, completion: nil)
-        
-
-        if let firstIndex = selectedIndex2 {
-            guard let cell = collectionView.cellForItem(at: firstIndex) as? SegmentCollectionViewCell else { return }
-            cell.configureSelection(Constants.gray, .white, 1)
+                self.delegate?.changeSelected(self.categories[indexPath.row].id!)
+            }, completion: nil)
+            
         }
-        selectedIndex2 = nil
+        
+        if selectedIndex2 != indexPath {
+            
+            if let firstIndex = selectedIndex2 {
+                guard let cell = collectionView.cellForItem(at: firstIndex) as? SegmentCollectionViewCell else { return }
+                cell.configureSelection(Constants.gray, .white, 1)
+                selectedIndex2 = nil
+            }
+        }
+        
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
         
@@ -145,10 +151,11 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
 
         
         if selectedIndex == indexPath {
-            selectedIndex = indexPath
+            selectedIndex = nil
         }
 
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: categories[indexPath.row].name!.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]).width + 25, height: 30)
