@@ -103,13 +103,8 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         
         cell.label.text = categories[indexPath.row].name
         
-       
-        UIView.transition(with: cell, duration: 0.8, options: .transitionCrossDissolve, animations: { [self] in
 
-            cell.configureSelection((indexPath == selectedIndex) ? .white : Constants.gray, (indexPath == selectedIndex) ? Constants.green : .white, 1)
-            
-            
-        }, completion: nil)
+        cell.configureSelection((indexPath == selectedIndex) ? .white : Constants.gray, (indexPath == selectedIndex) ? Constants.green : .white, 1)
         
       
         if let firstIndex = selectedIndex2 {
@@ -145,11 +140,9 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SegmentCollectionViewCell else { return }
         
-        UIView.transition(with: cell, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            
-            cell.configureSelection(Constants.gray, .white, 1)
-        }, completion: nil)
-    
+   
+        cell.configureSelection(Constants.gray, .white, 1)
+
         
         if selectedIndex == indexPath {
             selectedIndex = indexPath

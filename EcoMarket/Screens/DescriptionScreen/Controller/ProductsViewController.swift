@@ -71,7 +71,8 @@ class ProductsViewController: UIViewController {
         title = "Продукты"
         callToViewModelForUIUpdate()
         headerView.delegate = self
-
+        
+        
         
     }
     
@@ -110,6 +111,7 @@ class ProductsViewController: UIViewController {
             products = viewModel.getProducts(for: selectedCategory)
             headerView.selectedIndex2 = IndexPath(item: selectedCategory, section: 0)
             
+            print("Apple index:: \(products[0].title)")
             collection.reloadData()
         }
     }
@@ -160,15 +162,14 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         else {
             cell.configure(products[indexPath.row])
         }
-        
+//        print(BasketManager.shared.getById(products[indexPath.row].id!).title)
+
         cell.addButtonTapHandler = { [weak self] in
             guard let current = self?.products[indexPath.row] else {return}
             let productToAdd = Product(id: current.id, title: current.title, description: current.description, image: current.image, quantity: current.quantity, price: current.price)
             
-            self?.basketProduct.append(productToAdd)
             BasketManager.shared.addProductToBasket(productToAdd)
 
-            print(productToAdd)
         }
         
         cell.plusButtonTapHandler = { [weak self] in
@@ -189,21 +190,21 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         }
         
         cell.minusButtonTapHandler = { [weak self] in
+            
             guard let currentID = self?.products[indexPath.row].id else {return}
             
-            for (i, index) in self!.basketProduct.enumerated() {
-                if self!.basketProduct[i].quantity! != 1 {
-                    index.id == currentID ? self!.basketProduct[i].quantity! -= 1 : print("Aroso")
-                    cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
-                    BasketManager.shared.updateQuantity(for: currentID, quantity: self!.basketProduct[i].quantity!)
-                }
-                else {
+            var currentProduct = BasketManager.shared.getById(currentID)
+            
+            if currentProduct.quantity! <= 1 {
                     print("already zero")
+                    BasketManager.shared.removeById(currentID)
                     cell.showAddButton()
                 }
-            }
-
-            print(self!.basketProduct)
+                else {
+                    currentProduct.id == currentID ? currentProduct.quantity! -= 1 : print("Aroso")
+                    cell.buttonPlus.updateLabel(currentProduct.quantity!)
+                    BasketManager.shared.updateQuantity(for: currentID, quantity: currentProduct.quantity!)
+                }
         }
      
         return cell

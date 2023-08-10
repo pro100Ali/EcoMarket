@@ -114,6 +114,7 @@ class ProductCell: UICollectionViewCell, ButtonIsClicked {
         }
     
         func configure(_ category: Product) {
+            
             title.text = category.title
             guard let priceOfProduct = category.price else {return}
             price.text = "\(String(describing: priceOfProduct)) tg"

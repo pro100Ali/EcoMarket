@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4136EBF52A82C85B006525C8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4136EBF42A82C85B006525C8 /* Kingfisher */; };
+		413F882B2A84267A000AFFB5 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F882A2A84267A000AFFB5 /* HistoryViewController.swift */; };
+		413F882D2A8427B7000AFFB5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F882C2A8427B7000AFFB5 /* Order.swift */; };
+		413F882F2A842869000AFFB5 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F882E2A842869000AFFB5 /* OrderCell.swift */; };
+		413F88312A8435A1000AFFB5 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F88302A8435A1000AFFB5 /* SectionHeader.swift */; };
+		413F88342A8436C3000AFFB5 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F88332A8436C3000AFFB5 /* InfoViewController.swift */; };
+		413F88362A8439CA000AFFB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F88352A8439CA000AFFB5 /* CustomButton.swift */; };
 		414D3F882A7D515F006BCC53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F872A7D515F006BCC53 /* AppDelegate.swift */; };
 		414D3F8A2A7D515F006BCC53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F892A7D515F006BCC53 /* SceneDelegate.swift */; };
 		414D3F8C2A7D515F006BCC53 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3F8B2A7D515F006BCC53 /* MainViewController.swift */; };
@@ -36,6 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		413F882A2A84267A000AFFB5 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		413F882C2A8427B7000AFFB5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		413F882E2A842869000AFFB5 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		413F88302A8435A1000AFFB5 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		413F88332A8436C3000AFFB5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		413F88352A8439CA000AFFB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		414D3F842A7D515F006BCC53 /* EcoMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		414D3F872A7D515F006BCC53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		414D3F892A7D515F006BCC53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +89,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		413F88292A842651000AFFB5 /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				413F882A2A84267A000AFFB5 /* HistoryViewController.swift */,
+				413F88302A8435A1000AFFB5 /* SectionHeader.swift */,
+				413F882E2A842869000AFFB5 /* OrderCell.swift */,
+				413F882C2A8427B7000AFFB5 /* Order.swift */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
+		413F88322A843697000AFFB5 /* InfoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				413F88332A8436C3000AFFB5 /* InfoViewController.swift */,
+				413F88352A8439CA000AFFB5 /* CustomButton.swift */,
+			);
+			path = InfoScreen;
+			sourceTree = "<group>";
+		};
 		414D3F7B2A7D515F006BCC53 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +145,8 @@
 		414D3FA02A7D5E69006BCC53 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				413F88322A843697000AFFB5 /* InfoScreen */,
+				413F88292A842651000AFFB5 /* HistoryScreen */,
 				41D6CF342A801C8500CCA963 /* BasketScreen */,
 				419482EA2A7E6E8400EE5F54 /* DescriptionScreen */,
 				414D3FA12A7D5E71006BCC53 /* MainScreen */,
@@ -318,9 +352,12 @@
 			files = (
 				414D3F8C2A7D515F006BCC53 /* MainViewController.swift in Sources */,
 				419483012A7EEB3C00EE5F54 /* SegmentCollectionViewCell.swift in Sources */,
+				413F88362A8439CA000AFFB5 /* CustomButton.swift in Sources */,
+				413F88312A8435A1000AFFB5 /* SectionHeader.swift in Sources */,
 				414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */,
 				419482EE2A7E6EDD00EE5F54 /* ProductCell.swift in Sources */,
 				419482F82A7EB3EF00EE5F54 /* APICaller.swift in Sources */,
+				413F882B2A84267A000AFFB5 /* HistoryViewController.swift in Sources */,
 				414D3F882A7D515F006BCC53 /* AppDelegate.swift in Sources */,
 				41D6CF332A7FE4A500CCA963 /* ButtonPlusView.swift in Sources */,
 				41C42C232A8037B3002F271B /* BasketManager.swift in Sources */,
@@ -335,7 +372,10 @@
 				414D3FA32A7D5EA8006BCC53 /* CategoryCell.swift in Sources */,
 				414D3FAF2A7D8311006BCC53 /* NetworkMonitor.swift in Sources */,
 				41D6CF382A801E7E00CCA963 /* BasketCell.swift in Sources */,
+				413F882D2A8427B7000AFFB5 /* Order.swift in Sources */,
+				413F88342A8436C3000AFFB5 /* InfoViewController.swift in Sources */,
 				414D3FA72A7D6CAA006BCC53 /* Category.swift in Sources */,
+				413F882F2A842869000AFFB5 /* OrderCell.swift in Sources */,
 				419483042A7EEBC100EE5F54 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

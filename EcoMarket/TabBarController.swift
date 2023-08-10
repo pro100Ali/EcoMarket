@@ -14,8 +14,8 @@ class TabBarController: UITabBarController {
 
         let vc1 = UINavigationController(rootViewController: MainViewController())
         let vc2 = UINavigationController(rootViewController: BasketViewController())
-        let vc3 = MainViewController()
-        let vc4 = MainViewController()
+        let vc3 = UINavigationController(rootViewController: HistoryViewController())
+        let vc4 = UINavigationController(rootViewController: InfoViewController())
         
         vc1.tabBarItem.image = UIImage(named: "home")
         vc2.tabBarItem.image = UIImage(named: "bucket")

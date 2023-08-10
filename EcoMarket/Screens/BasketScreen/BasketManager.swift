@@ -31,6 +31,18 @@ class BasketManager {
         return basketProducts
     }
 
+    func removeById(_ id: Int) {
+        
+        self.basketProducts =  basketProducts.filter { $0.id != id }
+        NotificationCenter.default.post(name: .basketUpdated, object: nil)
+
+    }
+    
+    func getById(_ id: Int) -> Product {
+        return basketProducts.first { res in
+            res.id == id
+        }!
+    }
     
     func addProductToBasket(_ product: Product) {
           // Add the product to the basketProducts array

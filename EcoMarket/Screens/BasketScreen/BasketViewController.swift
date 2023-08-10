@@ -49,7 +49,6 @@ class BasketViewController: UIViewController {
     }
     
     @objc func basketUpdated(_ notification: Notification) {
-        print("jee")
         DispatchQueue.main.async {
             self.basketProducts = BasketManager.shared.getBasketProducts()
             self.collection.reloadData()
@@ -99,6 +98,7 @@ extension BasketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return basketProducts.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: BasketCell.identifier, for: indexPath) as! BasketCell
