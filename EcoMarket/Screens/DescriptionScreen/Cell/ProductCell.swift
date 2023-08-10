@@ -119,15 +119,16 @@ class ProductCell: UICollectionViewCell {
         BasketManager.shared.addProductToBasket(product!)
 //        product?.isAdded = true
 //        if product?.isAdded == true {
-            addSubview(buttonPlus)
-            
-            button.isHidden = true
-            buttonPlus.isHidden = false
             constraintsForButtoPlusMinus()
+
+           
 //        }
     }
     
     func constraintsForButtoPlusMinus() {
+        addSubview(buttonPlus)
+        button.isHidden = true
+        buttonPlus.isHidden = false
         buttonPlus.layer.cornerRadius = 16
 
         buttonPlus.snp.makeConstraints { make in
@@ -141,8 +142,7 @@ class ProductCell: UICollectionViewCell {
         showAddButton()
         if let quantity = BasketManager.shared.getBasketProducts().first(where: {$0.id == category.id}) {
             buttonPlus.updateLabel(quantity.quantity!)
-            button.isHidden = true
-            buttonPlus.isHidden = false
+            constraintsForButtoPlusMinus()
             
         }
         title.text = category.title
