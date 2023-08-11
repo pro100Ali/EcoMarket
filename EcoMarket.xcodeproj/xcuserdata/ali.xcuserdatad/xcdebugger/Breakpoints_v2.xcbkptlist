@@ -14,25 +14,9 @@
             filePath = "EcoMarket/Screens/BasketScreen/BasketViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "clearButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "20234B9B-AC51-4354-9753-6B92E145E76A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/BasketScreen/BasketViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,8 +30,8 @@
             filePath = "EcoMarket/Screens/BasketScreen/BasketManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "minusQuantity(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,13 +62,13 @@
             filePath = "EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "changeTheLabelToAdd(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271d18"
+                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271d79"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -94,12 +78,12 @@
                   urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
                   offsetFromSymbolStart = "684">
                </Location>
                <Location
-                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271d18"
+                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271d79"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -109,8 +93,8 @@
                   urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
                   offsetFromSymbolStart = "1840">
                </Location>
             </Locations>
@@ -119,15 +103,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "094DC68A-FCE7-4296-A291-9E8CF0EFDE88"
+            uuid = "8CA2F078-4914-4995-834D-8CB2AD35510F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EcoMarket/Screens/BasketScreen/BasketViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "updateDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0E5057F-F50D-4D57-87A0-CA9F1327259E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EcoMarket/Screens/BasketScreen/BasketViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "basketUpdated(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -135,48 +135,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CEF68919-E64D-41DF-B2F1-A7E39B2C047B"
+            uuid = "4F92B2E8-43A0-4DDF-8FCE-2F401B609BE4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EcoMarket/Screens/BasketScreen/BasketViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "basketUpdated(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF893ECE-13F7-445B-B8FE-BAFE4858EBB7"
+            uuid = "12C3F32C-39CF-4807-A284-81575BD4F14C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/BasketScreen/BasketViewController.swift"
+            filePath = "EcoMarket/Screens/MainScreen/Controllers/CustomAlert.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "dismissAlert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "334E5490-E5FD-4A37-AF44-A25280EDDB46"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EcoMarket/Screens/MainScreen/Controllers/CustomAlert.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
             endingLineNumber = "124"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkName = "goTO()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "12E51A13-9210-4C66-9509-313552D55170"
+            uuid = "6135BEDB-C5F1-4DA6-96BD-6D7B49B46608"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/BasketScreen/BasketManager.swift"
+            filePath = "EcoMarket/Screens/HistoryScreen/Controllers/HistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "plusQuantity(for:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "historyUpdated(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B3BD0B9-D3E1-4BCB-999B-89D1E7FF1BCA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EcoMarket/Screens/HistoryScreen/Controllers/BillCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "configure(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A997B85-D21E-4C9B-B69F-26DCF72E6DED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EcoMarket/Screens/HistoryScreen/Controllers/BillVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

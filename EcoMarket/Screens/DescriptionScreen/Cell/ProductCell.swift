@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 struct Colors {
     static let green = UIColor(red: 0.46, green: 0.86, blue: 0.11, alpha: 1)
@@ -145,19 +146,25 @@ class ProductCell: UICollectionViewCell {
             constraintsForButtoPlusMinus()
             
         }
+        
+        if let urlImage = category.image {
+            image.kf.setImage(with: URL(string: urlImage))
+        }
+
+        
         title.text = category.title
         guard let priceOfProduct = category.price else {return}
         price.text = "\(String(describing: priceOfProduct)) tg"
         
-        guard let imageOfProduct = category.image else { return }
-        image.image = UIImage(named: imageOfProduct)
-        
+  
         
     }
     
     func setupConstraints() {
         image.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview().inset(4)
+            make.top.equalToSuperview().inset(4)
+            make.width.equalTo(158)
+            make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(128)
         }
         

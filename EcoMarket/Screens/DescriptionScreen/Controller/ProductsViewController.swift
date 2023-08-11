@@ -119,7 +119,6 @@ class ProductsViewController: UIViewController {
 //            guard let data = viewModel.empData else { return }
             products = viewModel.getProducts(for: selectedCategory)
             headerView.selectedIndex2 = IndexPath(item: selectedCategory, section: 0)
-            
             collection.reloadData()
         }
     }

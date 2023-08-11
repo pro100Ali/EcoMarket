@@ -65,10 +65,18 @@ class OrderCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ order: Order) {
-        title.text = order.id
-        price.text = "\(order.totalCost) tg"
-    }
+    func configure(_ order: OrderDemo) {
+        if let orderTotal = order.total_amount {
+            price.text = "\(orderTotal) tg"
+        }
+        if let orderNumber = order.order_number {
+            title.text = "Заказ №\(orderNumber)"
+        }
+        if let orderData = order.created_at {
+            descriptionOfProduct.text = orderData
+        }
+
+}
     func setupConstraints() {
         image.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(12)

@@ -57,6 +57,8 @@ class BasketCell: UICollectionViewCell  {
        let image = UIButton()
         image.setImage(UIImage(named: "trash"), for: .normal)
         image.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
+        image.backgroundColor = .white
+        image.layer.cornerRadius = 5
         return image
     }()
     
@@ -93,6 +95,9 @@ class BasketCell: UICollectionViewCell  {
     }
     
     func configure(_ product: Product) {
+        if let urlImage = product.image {
+            image.kf.setImage(with: URL(string: urlImage))
+        }
         title.text = product.title
         price.text = product.price
         guard let quantity = product.quantity else {return}
@@ -112,6 +117,7 @@ class BasketCell: UICollectionViewCell  {
         }
         image.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(4)
+            make.width.equalTo(98)
             make.top.bottom.equalToSuperview().inset(4)
             make.centerY.equalToSuperview()
         }

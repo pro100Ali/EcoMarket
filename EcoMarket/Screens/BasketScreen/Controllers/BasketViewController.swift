@@ -10,9 +10,10 @@ import SnapKit
 
 class BasketViewController: UIViewController {
     
-    
-
+        
     var basketProducts: [Product] = []
+
+    
     
     lazy private var collection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -22,7 +23,22 @@ class BasketViewController: UIViewController {
         collection.isUserInteractionEnabled = true
         return collection
     }()
-   
+    
+    lazy private var button: UIButton = {
+       let button = UIButton()
+        button.setTitle("Оформить", for: .normal)
+        button.backgroundColor = Constants.green
+        button.layer.cornerRadius = 16
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
+    }()
+    
+    let vc = CustomAlert()
+    
+    let infoSum = InfoLines(frame: .zero, text: "Сумма", total: 0)
+    let infoDelivery = InfoLines(frame: .zero, text: "Доставка", total: 150)
+    let infoInTotal = InfoLines(frame: .zero, text: "Итого", total: 150)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +49,38 @@ class BasketViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(basketUpdated(_:)), name: .basketUpdated, object: nil)
         
         view.addSubview(collection)
+        view.addSubview(button)
+        view.addSubview(infoSum)
+        view.addSubview(infoDelivery)
+        view.addSubview(infoInTotal)
         collection.dataSource = self
         collection.delegate = self
 
         basketProducts = BasketManager.shared.getBasketProducts()
         
         setupConstraints()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(changeTheLabelToAdd(_:)), name: .changeTheLabelToAdd, object: nil)
+        
+        
     }
+    
+   
+    
+    @objc func buttonAction() {
+        if BasketManager.shared.totalCost < 300 {
+            vc.showAlert(vc: self, text: "Заказ может быть при покупке свыше 300 с", imageText: "sputnik", descText: nil, myFunc: nil)
+        }
+        else {
+            let vc = ConfirmationVC()
+            vc.totalCost.text = "Cумма заказа \(BasketManager.shared.totalCost)"
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
     @objc func changeTheLabelToAdd(_ notification: Notification) {
         basketProducts = BasketManager.shared.getBasketProducts()
+        
         updateDataSource()
     }
     
@@ -61,6 +97,8 @@ class BasketViewController: UIViewController {
     
     @objc func basketUpdated(_ notification: Notification) {
         updateDataSource()
+        print("total cost: \(BasketManager.shared.totalCost)")
+
     }
     
     deinit {
@@ -78,7 +116,8 @@ class BasketViewController: UIViewController {
     func updateDataSource(){
         DispatchQueue.main.async { [self] in
             self.basketProducts = BasketManager.shared.getBasketProducts()
-
+            infoSum.updateText(BasketManager.shared.totalCost)
+            infoInTotal.updateText(BasketManager.shared.totalCost + 150)
             self.collection.reloadData()
         }
     }
@@ -100,6 +139,30 @@ class BasketViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview()
         }
+        
+        infoSum.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(150)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(19)
+        }
+        
+        infoDelivery.snp.makeConstraints { make in
+            make.top.equalTo(infoSum.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(19)
+        }
+        
+        infoInTotal.snp.makeConstraints { make in
+            make.top.equalTo(infoDelivery.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(19)
+        }
+        
+        button.snp.makeConstraints { make in
+            make.top.equalTo(infoInTotal.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(54)
+        }
 
     }
     
@@ -119,6 +182,7 @@ extension BasketViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if let current = self.basketProducts[indexPath.row].id  {
             cell.configureProduct(basketProducts[indexPath.row], indexPath)
         }
+        
         cell.updateCollection = {
             print(self.basketProducts)
             self.updateDataSource()
@@ -133,7 +197,4 @@ extension BasketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
 }
 
-extension Notification.Name {
-    static let basketUpdated = Notification.Name("BasketUpdated")
-    static let changeTheLabelToAdd = Notification.Name("ChangeTheLabelToAdd")
-}
+

@@ -6,12 +6,21 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
 
 class BasketManager {
     
     static let shared = BasketManager()
     
     private var basketProducts: [Product] = []
+    
+    private var orderArray: [OrderDemo] = []
+    
+    private var historyBasketProducts: [Product] = []
+    
+     var totalCost: Double = 0
     
 //    private(set) var basketProducts: [Product]! {
 //           didSet {
@@ -26,16 +35,23 @@ class BasketManager {
         // Initialize any other settings or data related to the basket
     }
     
-   
+    
+    
+    func getOrderArray() -> [OrderDemo] {
+        return orderArray
+    }
     
     func getBasketProducts() -> [Product] {
         return basketProducts
     }
 
     func removeById(_ id: Int) {
-        
+        if let productToRemove = basketProducts.first(where: { $0.id == id } ) {
+            totalCost -= (Double(productToRemove.price!)! * Double(productToRemove.quantity!))
+        }
         self.basketProducts =  basketProducts.filter { $0.id != id }
-//        NotificationCenter.default.post(name: .basketUpdated, object: nil)
+        
+
         NotificationCenter.default.post(name: .changeTheLabelToAdd, object: nil)
 
     }
@@ -48,8 +64,10 @@ class BasketManager {
     
     func addProductToBasket(_ product: Product) {
           // Add the product to the basketProducts array
-          basketProducts.append(product)
+        basketProducts.append(product)
           
+          totalCost += Double(product.price!)!
+
           NotificationCenter.default.post(name: .basketUpdated, object: nil)
       }
     
@@ -57,6 +75,7 @@ class BasketManager {
         if let index = basketProducts.firstIndex(where: { $0.id == product.id! }) {
             basketProducts[index].quantity! += 1
             let productToParse = basketProducts[index]
+            totalCost += Double(productToParse.price!)!
             NotificationCenter.default.post(name: .basketUpdated, object: nil)
         }
     }
@@ -65,11 +84,12 @@ class BasketManager {
         if let index = basketProducts.firstIndex(where: { $0.id == product.id! }) {
             if basketProducts[index].quantity! > 1 {
                 basketProducts[index].quantity! -= 1
+                totalCost -= Double(product.price!)!
                 NotificationCenter.default.post(name: .basketUpdated, object: product)
             }
             else {
                 NotificationCenter.default.post(name: .changeTheLabelToAdd, object: basketProducts[index].id)
-
+                totalCost -= Double(product.price!)!
                 basketProducts.remove(at: index)
                 print(basketProducts)
             }
@@ -87,17 +107,18 @@ class BasketManager {
     
     func clearBasket() {
         basketProducts.removeAll()
-        NotificationCenter.default.post(name: .changeTheLabelToAdd, object: nil)
+        totalCost = 0
 
+        NotificationCenter.default.post(name: .changeTheLabelToAdd, object: nil)
     }
     
-    func getTotalCost() -> Int {
-//        basketProducts.reduce($0., +)
-        let totalCost = basketProducts
-             .map { Int($0.price ?? "0") ?? 0 }
-             .reduce(0, +)
-         return totalCost
-        
+    func updateHistory(_ order: OrderDemo) {
+        var orderToAdd = order
+        orderToAdd.orderItems = basketProducts
+        orderArray.append(orderToAdd)
+        NotificationCenter.default.post(name: .historyUpdated, object: nil)
     }
+    
+    
 }
 

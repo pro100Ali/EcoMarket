@@ -12,7 +12,6 @@ import SnapKit
 class CustomAlert {
     
     
-    
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -30,7 +29,7 @@ class CustomAlert {
     
     private var myTargetView: UIView?
     
-    func showAlert(vc: UIViewController) {
+    func showAlert(vc: UIViewController, text: String, imageText: String, descText: String?, myFunc: String?) {
         
         guard let targetView = vc.view else { return }
         
@@ -42,10 +41,11 @@ class CustomAlert {
         alertView.frame = CGRect(x: 0, y: -600, width: targetView.frame.width, height: 458)
         
         targetView.addSubview(alertView)
-        
+        backgroundView.isUserInteractionEnabled = false
+
         
         let image = UIImageView()
-        image.image = UIImage(named: "sputnik")
+        image.image = UIImage(named: imageText)
         alertView.addSubview(image)
         
         image.snp.makeConstraints { make in
@@ -54,7 +54,7 @@ class CustomAlert {
         }
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 80, width: alertView.frame.width , height: 80))
-        titleLabel.text = "Отсутствует интернет  соединение"
+        titleLabel.text = text
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
@@ -68,33 +68,43 @@ class CustomAlert {
             make.width.equalToSuperview().multipliedBy(0.7)
         }
         
-        
-        let desc = UILabel(frame: CGRect(x: 0, y: 80, width: alertView.frame.width, height: 80))
-        desc.text = "Попробуйте подключить мобильный интернет"
-        desc.font = UIFont.systemFont(ofSize: 18, weight: .light)
-        desc.textColor = .gray
-        desc.textAlignment = .center
-        desc.numberOfLines  = 0
-        
-        alertView.addSubview(desc)
-        
-        desc.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.7)
+        if let descText = descText {
+            let desc = UILabel(frame: CGRect(x: 0, y: 80, width: alertView.frame.width, height: 80))
+            desc.text = descText
+            desc.font = UIFont.systemFont(ofSize: 18, weight: .light)
+            desc.textColor = .gray
+            desc.textAlignment = .center
+            desc.numberOfLines  = 0
             
+            alertView.addSubview(desc)
+            
+            desc.snp.makeConstraints { make in
+                make.top.equalTo(titleLabel.snp.bottom).offset(8)
+                make.centerX.equalToSuperview()
+                make.width.equalToSuperview().multipliedBy(0.7)
+                
+            }
         }
         
         let buttonAlert = UIButton(frame: CGRect(x: 140, y: alertView.frame.height - 90, width: alertView.frame.width - 280, height: 40))
         buttonAlert.setTitle("Ok", for: .normal)
-        buttonAlert.backgroundColor = .green
+        buttonAlert.backgroundColor = Constants.green
         buttonAlert.layer.cornerRadius = 16
-        buttonAlert.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        
+        if let myFunc = myFunc {
+            buttonAlert.addTarget(self, action: #selector(goTO), for: .touchUpInside)
+        }
+        else {
+            buttonAlert.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        }
+        
+        
+        
         alertView.addSubview(buttonAlert)
         
         buttonAlert.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(25)
-            make.top.equalTo(desc.snp.bottom).offset(10)
+            make.bottom.equalToSuperview().inset(24)
             make.height.equalTo(60)
         }
         
@@ -108,6 +118,10 @@ class CustomAlert {
             }
         }
         
+    }
+    
+    @objc func goTO() {
+        print("asdasd")
     }
     
     @objc func dismissAlert() {

@@ -27,6 +27,15 @@
 		414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FAC2A7D807A006BCC53 /* ViewModel.swift */; };
 		414D3FAF2A7D8311006BCC53 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FAE2A7D8311006BCC53 /* NetworkMonitor.swift */; };
 		414D3FB52A7D9CC2006BCC53 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FB42A7D9CC2006BCC53 /* CustomAlert.swift */; };
+		41834D782A8609BF00E04379 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 41834D772A8609BF00E04379 /* RxCocoa */; };
+		41834D7A2A8609BF00E04379 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41834D792A8609BF00E04379 /* RxSwift */; };
+		41834D7C2A862B0000E04379 /* InfoLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D7B2A862B0000E04379 /* InfoLines.swift */; };
+		41834D7E2A8669A900E04379 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D7D2A8669A900E04379 /* ConfirmationVC.swift */; };
+		41834D852A86A2F300E04379 /* OrderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D842A86A2F300E04379 /* OrderDemo.swift */; };
+		41834D882A86ABBA00E04379 /* Notification.Name .swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D872A86ABBA00E04379 /* Notification.Name .swift */; };
+		41834D8A2A86BA3900E04379 /* BillVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D892A86BA3900E04379 /* BillVC.swift */; };
+		41834D8C2A86BAED00E04379 /* BillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D8B2A86BAED00E04379 /* BillCell.swift */; };
+		41834D8E2A86C3E000E04379 /* GreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D8D2A86C3E000E04379 /* GreenView.swift */; };
 		419482EC2A7E6EB700EE5F54 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419482EB2A7E6EB700EE5F54 /* ProductsViewController.swift */; };
 		419482EE2A7E6EDD00EE5F54 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419482ED2A7E6EDC00EE5F54 /* ProductCell.swift */; };
 		419482F42A7EA29200EE5F54 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419482F32A7EA29200EE5F54 /* Product.swift */; };
@@ -62,6 +71,13 @@
 		414D3FAC2A7D807A006BCC53 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		414D3FAE2A7D8311006BCC53 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		414D3FB42A7D9CC2006BCC53 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		41834D7B2A862B0000E04379 /* InfoLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLines.swift; sourceTree = "<group>"; };
+		41834D7D2A8669A900E04379 /* ConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationVC.swift; sourceTree = "<group>"; };
+		41834D842A86A2F300E04379 /* OrderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDemo.swift; sourceTree = "<group>"; };
+		41834D872A86ABBA00E04379 /* Notification.Name .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name .swift"; sourceTree = "<group>"; };
+		41834D892A86BA3900E04379 /* BillVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillVC.swift; sourceTree = "<group>"; };
+		41834D8B2A86BAED00E04379 /* BillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell.swift; sourceTree = "<group>"; };
+		41834D8D2A86C3E000E04379 /* GreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenView.swift; sourceTree = "<group>"; };
 		419482EB2A7E6EB700EE5F54 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		419482ED2A7E6EDC00EE5F54 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		419482F32A7EA29200EE5F54 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -81,7 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41834D782A8609BF00E04379 /* RxCocoa in Frameworks */,
 				4136EBF52A82C85B006525C8 /* Kingfisher in Frameworks */,
+				41834D7A2A8609BF00E04379 /* RxSwift in Frameworks */,
 				414D3F9D2A7D5C3C006BCC53 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,10 +110,8 @@
 		413F88292A842651000AFFB5 /* HistoryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				413F882A2A84267A000AFFB5 /* HistoryViewController.swift */,
-				413F88302A8435A1000AFFB5 /* SectionHeader.swift */,
-				413F882E2A842869000AFFB5 /* OrderCell.swift */,
-				413F882C2A8427B7000AFFB5 /* Order.swift */,
+				41834D832A8694D900E04379 /* View */,
+				41834D822A8694D000E04379 /* Controllers */,
 			);
 			path = HistoryScreen;
 			sourceTree = "<group>";
@@ -133,6 +149,7 @@
 				414D3FA02A7D5E69006BCC53 /* Screens */,
 				414D3F8D2A7D515F006BCC53 /* Main.storyboard */,
 				419483052A7EEE4900EE5F54 /* Constants.swift */,
+				41834D862A86ABA500E04379 /* Extension */,
 				414D3F9E2A7D5CC4006BCC53 /* TabBarController.swift */,
 				414D3F902A7D5160006BCC53 /* Assets.xcassets */,
 				419482F72A7EB3EF00EE5F54 /* APICaller.swift */,
@@ -196,6 +213,61 @@
 				414D3FAC2A7D807A006BCC53 /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		41834D7F2A86946100E04379 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41D6CF352A801CC600CCA963 /* BasketViewController.swift */,
+				41834D7D2A8669A900E04379 /* ConfirmationVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		41834D802A86947200E04379 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41D6CF372A801E7E00CCA963 /* BasketCell.swift */,
+				41834D7B2A862B0000E04379 /* InfoLines.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41834D812A86947D00E04379 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				413F882C2A8427B7000AFFB5 /* Order.swift */,
+				41834D842A86A2F300E04379 /* OrderDemo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		41834D822A8694D000E04379 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				413F882A2A84267A000AFFB5 /* HistoryViewController.swift */,
+				41834D8B2A86BAED00E04379 /* BillCell.swift */,
+				41834D8D2A86C3E000E04379 /* GreenView.swift */,
+				41834D892A86BA3900E04379 /* BillVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		41834D832A8694D900E04379 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				413F88302A8435A1000AFFB5 /* SectionHeader.swift */,
+				413F882E2A842869000AFFB5 /* OrderCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41834D862A86ABA500E04379 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				41834D872A86ABBA00E04379 /* Notification.Name .swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		419482E92A7E6CA300EE5F54 /* Controllers */ = {
@@ -264,9 +336,10 @@
 		41D6CF342A801C8500CCA963 /* BasketScreen */ = {
 			isa = PBXGroup;
 			children = (
-				41D6CF352A801CC600CCA963 /* BasketViewController.swift */,
+				41834D812A86947D00E04379 /* Model */,
+				41834D7F2A86946100E04379 /* Controllers */,
+				41834D802A86947200E04379 /* Views */,
 				41C42C222A8037B3002F271B /* BasketManager.swift */,
-				41D6CF372A801E7E00CCA963 /* BasketCell.swift */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";
@@ -290,6 +363,8 @@
 			packageProductDependencies = (
 				414D3F9C2A7D5C3C006BCC53 /* SnapKit */,
 				4136EBF42A82C85B006525C8 /* Kingfisher */,
+				41834D772A8609BF00E04379 /* RxCocoa */,
+				41834D792A8609BF00E04379 /* RxSwift */,
 			);
 			productName = EcoMarket;
 			productReference = 414D3F842A7D515F006BCC53 /* EcoMarket.app */;
@@ -322,6 +397,7 @@
 			packageReferences = (
 				414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4136EBF32A82C85B006525C8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 414D3F852A7D515F006BCC53 /* Products */;
 			projectDirPath = "";
@@ -353,6 +429,7 @@
 				414D3F8C2A7D515F006BCC53 /* MainViewController.swift in Sources */,
 				419483012A7EEB3C00EE5F54 /* SegmentCollectionViewCell.swift in Sources */,
 				413F88362A8439CA000AFFB5 /* CustomButton.swift in Sources */,
+				41834D8A2A86BA3900E04379 /* BillVC.swift in Sources */,
 				413F88312A8435A1000AFFB5 /* SectionHeader.swift in Sources */,
 				414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */,
 				419482EE2A7E6EDD00EE5F54 /* ProductCell.swift in Sources */,
@@ -363,17 +440,23 @@
 				41C42C232A8037B3002F271B /* BasketManager.swift in Sources */,
 				414D3FB52A7D9CC2006BCC53 /* CustomAlert.swift in Sources */,
 				419482F62A7EB02E00EE5F54 /* ProductViewModel.swift in Sources */,
+				41834D7C2A862B0000E04379 /* InfoLines.swift in Sources */,
+				41834D8C2A86BAED00E04379 /* BillCell.swift in Sources */,
 				419482F42A7EA29200EE5F54 /* Product.swift in Sources */,
 				419482EC2A7E6EB700EE5F54 /* ProductsViewController.swift in Sources */,
 				414D3F9F2A7D5CC4006BCC53 /* TabBarController.swift in Sources */,
 				419483062A7EEE4900EE5F54 /* Constants.swift in Sources */,
+				41834D8E2A86C3E000E04379 /* GreenView.swift in Sources */,
 				414D3F8A2A7D515F006BCC53 /* SceneDelegate.swift in Sources */,
+				41834D882A86ABBA00E04379 /* Notification.Name .swift in Sources */,
 				41D6CF362A801CC600CCA963 /* BasketViewController.swift in Sources */,
 				414D3FA32A7D5EA8006BCC53 /* CategoryCell.swift in Sources */,
 				414D3FAF2A7D8311006BCC53 /* NetworkMonitor.swift in Sources */,
 				41D6CF382A801E7E00CCA963 /* BasketCell.swift in Sources */,
 				413F882D2A8427B7000AFFB5 /* Order.swift in Sources */,
 				413F88342A8436C3000AFFB5 /* InfoViewController.swift in Sources */,
+				41834D852A86A2F300E04379 /* OrderDemo.swift in Sources */,
+				41834D7E2A8669A900E04379 /* ConfirmationVC.swift in Sources */,
 				414D3FA72A7D6CAA006BCC53 /* Category.swift in Sources */,
 				413F882F2A842869000AFFB5 /* OrderCell.swift in Sources */,
 				419483042A7EEBC100EE5F54 /* HeaderView.swift in Sources */,
@@ -612,6 +695,14 @@
 				kind = branch;
 			};
 		};
+		41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -624,6 +715,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		41834D772A8609BF00E04379 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		41834D792A8609BF00E04379 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

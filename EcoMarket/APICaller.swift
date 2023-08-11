@@ -75,4 +75,63 @@ class APICaller {
         task.resume()
         
     }
+    
+    func postTheData(basketProduct: [Product], completion: @escaping (Result<OrderDemo, Error>) -> Void) {
+        let urlString = "http://142.93.101.70:8000/order-create/"
+        
+        let url = URL(string: urlString)
+        
+        var request = URLRequest(url: url!)
+        
+        request.httpMethod = "POST"
+        
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        var products: [ProductDemo] = []
+
+        for item in basketProduct {
+            products.append(ProductDemo(product: item.id!, quantity: item.quantity!))
+        }
+        
+        let productsArray = ProductsArray(products: products)
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(productsArray)
+        }
+        catch {
+            print(error)
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, responce, error in
+            
+            if let error = error {
+                print("Error took place: \(error)")
+                return
+            }
+            guard let data = data else { return }
+                
+            do {
+                let model = try JSONDecoder().decode(OrderDemo.self, from: data)
+                print(model.order_number)
+                completion(.success(model))
+            }
+            catch {
+                print(error)
+                completion(.failure(error))
+            }
+        }.resume()
+        
+    }
+    
+    
+}
+
+struct ProductsArray: Codable {
+    let products: [ProductDemo]
+}
+
+struct ProductDemo: Codable {
+    let product: Int
+    let quantity: Int
 }

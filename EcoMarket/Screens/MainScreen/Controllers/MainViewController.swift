@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
     }
     
     func checkConnection() {
-        NetworkMonitor.shared.isConnected ? nil : vc.showAlert(vc: self) 
+        NetworkMonitor.shared.isConnected ? nil : vc.showAlert(vc: self, text: "Отсутствует интернет  соединение", imageText: "sputnik", descText: "Попробуйте подключить мобильный интернет", myFunc: nil)
     }
     
     func callToViewModelForUIUpdate() {
