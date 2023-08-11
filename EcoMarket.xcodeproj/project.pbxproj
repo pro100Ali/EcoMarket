@@ -27,8 +27,6 @@
 		414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FAC2A7D807A006BCC53 /* ViewModel.swift */; };
 		414D3FAF2A7D8311006BCC53 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FAE2A7D8311006BCC53 /* NetworkMonitor.swift */; };
 		414D3FB52A7D9CC2006BCC53 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D3FB42A7D9CC2006BCC53 /* CustomAlert.swift */; };
-		41834D782A8609BF00E04379 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 41834D772A8609BF00E04379 /* RxCocoa */; };
-		41834D7A2A8609BF00E04379 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41834D792A8609BF00E04379 /* RxSwift */; };
 		41834D7C2A862B0000E04379 /* InfoLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D7B2A862B0000E04379 /* InfoLines.swift */; };
 		41834D7E2A8669A900E04379 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D7D2A8669A900E04379 /* ConfirmationVC.swift */; };
 		41834D852A86A2F300E04379 /* OrderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41834D842A86A2F300E04379 /* OrderDemo.swift */; };
@@ -97,9 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41834D782A8609BF00E04379 /* RxCocoa in Frameworks */,
 				4136EBF52A82C85B006525C8 /* Kingfisher in Frameworks */,
-				41834D7A2A8609BF00E04379 /* RxSwift in Frameworks */,
 				414D3F9D2A7D5C3C006BCC53 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +106,7 @@
 		413F88292A842651000AFFB5 /* HistoryScreen */ = {
 			isa = PBXGroup;
 			children = (
+				41834D8F2A86D1DE00E04379 /* Cell */,
 				41834D832A8694D900E04379 /* View */,
 				41834D822A8694D000E04379 /* Controllers */,
 			);
@@ -246,8 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				413F882A2A84267A000AFFB5 /* HistoryViewController.swift */,
-				41834D8B2A86BAED00E04379 /* BillCell.swift */,
-				41834D8D2A86C3E000E04379 /* GreenView.swift */,
 				41834D892A86BA3900E04379 /* BillVC.swift */,
 			);
 			path = Controllers;
@@ -257,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				413F88302A8435A1000AFFB5 /* SectionHeader.swift */,
-				413F882E2A842869000AFFB5 /* OrderCell.swift */,
+				41834D8D2A86C3E000E04379 /* GreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,6 +263,15 @@
 				41834D872A86ABBA00E04379 /* Notification.Name .swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		41834D8F2A86D1DE00E04379 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				413F882E2A842869000AFFB5 /* OrderCell.swift */,
+				41834D8B2A86BAED00E04379 /* BillCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		419482E92A7E6CA300EE5F54 /* Controllers */ = {
@@ -363,8 +367,6 @@
 			packageProductDependencies = (
 				414D3F9C2A7D5C3C006BCC53 /* SnapKit */,
 				4136EBF42A82C85B006525C8 /* Kingfisher */,
-				41834D772A8609BF00E04379 /* RxCocoa */,
-				41834D792A8609BF00E04379 /* RxSwift */,
 			);
 			productName = EcoMarket;
 			productReference = 414D3F842A7D515F006BCC53 /* EcoMarket.app */;
@@ -715,16 +717,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		41834D772A8609BF00E04379 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		41834D792A8609BF00E04379 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
