@@ -68,7 +68,7 @@ class BasketViewController: UIViewController {
     
     @objc func buttonAction() {
         if BasketManager.shared.totalCost < 300 {
-            vc.showAlert(vc: self, text: "Заказ может быть при покупке свыше 300 с", imageText: "sputnik", descText: nil, myFunc: nil)
+            vc.showAlert(vc: self, text: "Заказ может быть при покупке свыше 300 с", imageText: "bagO", descText: nil, myFunc: nil)
         }
         else {
             let vc = ConfirmationVC()

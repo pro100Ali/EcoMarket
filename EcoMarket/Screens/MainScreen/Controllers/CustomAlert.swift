@@ -25,11 +25,15 @@ class CustomAlert {
         view.layer.cornerRadius = 16
         return view
     }()
+    typealias AlertAction = () -> Void
+
+    private var alertAction: AlertAction?
+
     
     
     private var myTargetView: UIView?
     
-    func showAlert(vc: UIViewController, text: String, imageText: String, descText: String?, myFunc: String?) {
+    func showAlert(vc: UIViewController, text: String, imageText: String, descText: String?, myFunc: (() -> ())?) {
         
         guard let targetView = vc.view else { return }
         
@@ -50,7 +54,9 @@ class CustomAlert {
         
         image.snp.makeConstraints { make in
             make.height.equalTo(224)
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.width.equalTo(224)
+            make.centerX.equalToSuperview()
+//            make.leading.trailing.equalToSuperview().inset(80)
         }
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 80, width: alertView.frame.width , height: 80))
@@ -92,6 +98,7 @@ class CustomAlert {
         buttonAlert.layer.cornerRadius = 16
         
         if let myFunc = myFunc {
+            self.alertAction = myFunc
             buttonAlert.addTarget(self, action: #selector(goTO), for: .touchUpInside)
         }
         else {
@@ -121,7 +128,7 @@ class CustomAlert {
     }
     
     @objc func goTO() {
-        print("asdasd")
+        self.alertAction?()
     }
     
     @objc func dismissAlert() {

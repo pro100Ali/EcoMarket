@@ -32,6 +32,8 @@ class ConfirmationVC: UIViewController {
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
+    let vc = CustomAlert()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +63,8 @@ class ConfirmationVC: UIViewController {
             }
         }
         
-        let vc = CustomAlert()
         
-        vc.showAlert(vc: self, text: "Заказ №343565657 оформлен", imageText: "sputnik", descText: "Дата и время 07.07.2023 12:46", myFunc: "adsasd")
+        vc.showAlert(vc: self, text: "Заказ №343565657 оформлен", imageText: "bagSmile", descText: "Дата и время 07.07.2023 12:46", myFunc: dismissToMainTabBar)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
 //              vc.dismissAlert()
@@ -75,7 +76,7 @@ class ConfirmationVC: UIViewController {
         
     }
     
-    func dismissToMainTabBar() {
+    @objc func dismissToMainTabBar() {
         if let mainTabBarController = tabBarController as? TabBarController {
             // Dismiss all presented view controllers on the current tab
             navigationController?.popToRootViewController(animated: false)

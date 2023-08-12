@@ -129,7 +129,7 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
         let vc = BillVC()
         vc.orderItems = orderArray[indexPath.row].orderItems!
         vc.greenView.configure(dateText: orderArray[indexPath.row].created_at!, costText: orderArray[indexPath.row].total_amount!)
-        vc.title = "\(orderArray[indexPath.row].order_number!)"
+        vc.title = "№\(orderArray[indexPath.row].order_number!)"
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
