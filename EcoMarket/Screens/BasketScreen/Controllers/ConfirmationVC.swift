@@ -32,6 +32,7 @@ class ConfirmationVC: UIViewController {
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
+    
     let vc = CustomAlert()
 
     
@@ -81,12 +82,17 @@ class ConfirmationVC: UIViewController {
             // Dismiss all presented view controllers on the current tab
             navigationController?.popToRootViewController(animated: false)
             mainTabBarController.selectedIndex = 0 // Select the first tab
+            BasketManager.shared.clearBasket()
+            // Pop another view controller from the navigation stack
+            if let viewControllerToPop = navigationController?.viewControllers.first(where: { $0 is MainViewController }) {
+                navigationController?.popToViewController(viewControllerToPop, animated: true)
+            }
         }
     }
     
     // Function to call when you want to dismiss and go to the main tab bar
     func dismissAndGoToMainTabBar() {
-        dismissToMainTabBar() // Dismiss the current view controller if presented modally
+//        dismissToMainTabBar() // Dismiss the current view controller if presented modally
         navigationController?.popToRootViewController(animated: true) // Dismiss all pushed view controllers
     }
     

@@ -124,6 +124,45 @@ class APICaller {
         
     }
     
+    func searchProduct(char: String, completion: @escaping (Result<[Product], Error>) -> Void) {
+        
+        let searchTerm = String(char).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+          guard let term = searchTerm, let url = URL(string: "http://142.93.101.70:8000/product-list/?search=\(term)") else {
+              completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+              return
+          }
+//
+//        let urlString = "http://142.93.101.70:8000/product-list/?search=\(char)"
+//        let url = URL(string: urlString)
+  
+        let request = URLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let articles = try decoder.decode([Product].self, from: data)
+                    
+//                    print(articles)
+                    completion(.success(articles))
+                    
+                } catch let error {
+                    print("Error was \(error)")
+                    completion(.failure(error))
+                }
+            }
+            
+            if let error = error {
+                print("ERRRRROOR \(error)")
+            }
+            
+        }
+        task.resume()
+        
+        
+    }
+    
     
 }
 

@@ -64,6 +64,8 @@ class BasketViewController: UIViewController {
         
     }
     
+    
+    
    
     
     @objc func buttonAction() {
@@ -102,6 +104,7 @@ class BasketViewController: UIViewController {
     }
     
     deinit {
+        NotificationCenter.default.removeObserver(self, name: .changeTheLabelToAdd, object: nil)
         NotificationCenter.default.removeObserver(self, name: .basketUpdated, object: nil)
     }
     

@@ -38,6 +38,12 @@ class HistoryViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(historyUpdated(_:)), name: .historyUpdated, object: nil)
         
     }
+ 
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .changeTheLabelToAdd, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .basketUpdated, object: nil)
+    }
     
   
     

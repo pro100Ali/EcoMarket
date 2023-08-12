@@ -79,7 +79,7 @@ class BillCell: UICollectionViewCell {
             image.kf.setImage(with: URL(string: urlImage))
         }
         title.text = product.title
-        price.text = product.price
+        price.text = "\(product.price ?? "570") tg"
         guard let quantityCount = product.quantity else {return}
         quantity.text = "\(quantityCount) шт"
 

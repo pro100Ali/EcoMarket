@@ -18,7 +18,6 @@ class BillVC: UIViewController {
         layout.itemSize = CGSize(width: 370, height: 70)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(BillCell.self, forCellWithReuseIdentifier: BillCell.identifier)
-//        collection.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
         collection.isUserInteractionEnabled = true
         return collection
     }()

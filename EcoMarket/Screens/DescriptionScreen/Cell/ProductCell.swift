@@ -87,9 +87,12 @@ class ProductCell: UICollectionViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(basketUpdated(_:)), name: .basketUpdated, object: nil)
         
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .changeTheLabelToAdd, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .basketUpdated, object: nil)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

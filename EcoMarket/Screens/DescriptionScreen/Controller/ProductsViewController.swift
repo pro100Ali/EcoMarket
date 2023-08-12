@@ -79,26 +79,59 @@ class ProductsViewController: UIViewController {
      
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .changeTheLabelToAdd, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .basketUpdated, object: nil)
+    }
 
     
     @objc func searchRecord() {
         self.filteredProducts.removeAll()
         let searchData: Int = textField.text!.count
+    
         if searchData != 0 {
-            searching = true
-            for product in products {
-                if let productToSearch = textField.text {
-                    let range = product.title!.lowercased().range(of: productToSearch, options: .caseInsensitive, range: nil, locale: nil)
-                    if range != nil {
-                        self.filteredProducts.append(product)
+            APICaller.shared.searchProduct(char: textField.text!) { res in
+                switch res {
+                case .success(let success):
+                    
+                    if  success.isEmpty {
+                        print("empty")
+
                     }
+                    else {
+                        var array: [Product] = []
+                        for i in 0 ..< success.count {
+                            if success[i].category == self.selectedCategory || self.selectedCategory == 0 {
+                                array.append(success[i])
+                            }
+                        }
+                        self.products = array
+
+                    }
+                case .failure(let failure):
+                    print(failure)
                 }
             }
         }
         else {
-            filteredProducts = products
-            searching = false
-        }
+                 filteredProducts = products
+                 searching = false
+             }
+//        if searchData != 0 {
+//            searching = true
+//            for product in products {
+//                if let productToSearch = textField.text {
+//                    let range = product.title!.lowercased().range(of: productToSearch, options: .caseInsensitive, range: nil, locale: nil)
+//                    if range != nil {
+//                        self.filteredProducts.append(product)
+//                    }
+//                }
+//            }
+//        }
+//        else {
+//            filteredProducts = products
+//            searching = false
+//        }
         collection.reloadData()
     }
     
@@ -174,48 +207,6 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
             cell.configureProduct(product: products[indexPath.row] ,indexPath: indexPath)
         }
         
-        
-//            
-////            let productToAdd = Product(id: current.id, title: current.title, description: current.description, image: current.image, quantity: current.quantity, price: current.price)
-//            
-////            BasketManager.shared.addProductToBasket(productToAdd)
-//
-//        }
-        
-//        cell.plusButtonTapHandler = { [weak self] in
-//            guard let currentID = self?.products[indexPath.row].id else {return}
-//            
-//
-//            for (i, index) in self!.basketProduct.enumerated() {
-//                	
-//                index.id == currentID ? self!.basketProduct[i].quantity! += 1 : print("Aroso")
-//                
-//                BasketManager.shared.updateQuantity(for: currentID, quantity: self!.basketProduct[i].quantity!)
-//                
-//                cell.buttonPlus.updateLabel(self!.basketProduct[i].quantity!)
-//            }
-//
-//
-//        }
-        
-//        cell.minusButtonTapHandler = { [weak self] in
-//
-//            guard let currentID = self?.products[indexPath.row].id else {return}
-//
-//            var currentProduct = BasketManager.shared.getById(currentID)
-//
-//            if currentProduct.quantity! <= 1 {
-//                    print("already zero")
-//                    BasketManager.shared.removeById(currentID)
-//                    cell.showAddButton()
-//                }
-//                else {
-//                    currentProduct.id == currentID ? currentProduct.quantity! -= 1 : print("Aroso")
-//                    cell.buttonPlus.updateLabel(currentProduct.quantity!)
-//                    BasketManager.shared.updateQuantity(for: currentID, quantity: currentProduct.quantity!)
-//                }
-//        }
-     
         return cell
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -233,7 +224,12 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
 extension ProductsViewController: ShowTheProducts {
     func changeSelected(_ id: Int) {
         self.selectedCategory = id
-        updateDataSource()
+//        textField.text = nil
+        DispatchQueue.main.async {
+            self.searchRecord()
+            self.updateDataSource()
+        }
+       
     }
     
     

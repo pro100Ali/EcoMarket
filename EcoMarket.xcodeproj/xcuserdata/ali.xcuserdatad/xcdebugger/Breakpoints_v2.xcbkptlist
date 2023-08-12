@@ -62,13 +62,13 @@
             filePath = "EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "changeTheLabelToAdd(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271d79"
+                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271a9c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -78,12 +78,12 @@
                   urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
                   offsetFromSymbolStart = "684">
                </Location>
                <Location
-                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271d79"
+                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271a9c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -93,8 +93,8 @@
                   urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
                   offsetFromSymbolStart = "1840">
                </Location>
             </Locations>
@@ -160,7 +160,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "goTO(myFunc:)"
+            landmarkName = "goTO()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -174,8 +174,8 @@
             filePath = "EcoMarket/Screens/HistoryScreen/Controllers/HistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "historyUpdated(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "EcoMarket/Screens/HistoryScreen/Controllers/BillVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -215,16 +215,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "307D34F9-E606-4D57-A897-1DA6941B5655"
+            uuid = "29D7D20F-48FE-4C8A-B5C0-CC9C8EC37888"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/MainScreen/Controllers/CustomAlert.swift"
+            filePath = "EcoMarket/Screens/BasketScreen/Controllers/ConfirmationVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "showAlert(vc:text:imageText:descText:myFunc:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "dismissAndGoToMainTabBar()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
