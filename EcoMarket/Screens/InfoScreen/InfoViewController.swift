@@ -37,6 +37,7 @@ class InfoViewController: UIViewController {
     let button2 = CustomButton(frame: .zero, "whatsapp", "WhatsApp")
     let button3 = CustomButton(frame: .zero, "instagram", "Instagram")
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -48,9 +49,20 @@ class InfoViewController: UIViewController {
         view.addSubview(button2)
         view.addSubview(button3)
         setupConstraints()
+        callFunction()
     }
     
-
+    @objc func callFunction() {
+        let application = UIApplication.shared
+        if let phoneURL = URL(string: "tel://0123456789") {
+            if application.canOpenURL(phoneURL) {
+                application.open(phoneURL, options: [:], completionHandler: nil)
+            }
+          
+        }
+    }
+    
+    
    
     func setupConstraints() {
         image.snp.makeConstraints { make in

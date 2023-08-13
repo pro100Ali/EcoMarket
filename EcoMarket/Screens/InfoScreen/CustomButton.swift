@@ -41,7 +41,6 @@ class CustomButton: UIView {
     
     init(frame: CGRect, _ iconText: String, _ text: String) {
         super.init(frame: frame)
-        
         addSubview(button)
         button.addSubview(view)
         view.addSubview(label)

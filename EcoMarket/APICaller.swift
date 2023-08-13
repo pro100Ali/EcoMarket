@@ -26,7 +26,6 @@ class APICaller {
                 do {
                     let articles = try decoder.decode([Category].self, from: data)
                     
-//                    print(articles)
                     completion(.success(articles))
                     
                 } catch let error {
@@ -103,7 +102,7 @@ class APICaller {
             print(error)
         }
         
-        let task = URLSession.shared.dataTask(with: request) { data, responce, error in
+        _ = URLSession.shared.dataTask(with: request) { data, responce, error in
             
             if let error = error {
                 print("Error took place: \(error)")
@@ -113,7 +112,6 @@ class APICaller {
                 
             do {
                 let model = try JSONDecoder().decode(OrderDemo.self, from: data)
-                print(model.order_number)
                 completion(.success(model))
             }
             catch {
@@ -132,10 +130,7 @@ class APICaller {
               completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
               return
           }
-//
-//        let urlString = "http://142.93.101.70:8000/product-list/?search=\(char)"
-//        let url = URL(string: urlString)
-  
+
         let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -159,8 +154,7 @@ class APICaller {
             
         }
         task.resume()
-        
-        
+
     }
     
     
