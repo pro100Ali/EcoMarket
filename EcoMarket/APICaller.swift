@@ -102,7 +102,7 @@ class APICaller {
             print(error)
         }
         
-        _ = URLSession.shared.dataTask(with: request) { data, responce, error in
+        URLSession.shared.dataTask(with: request) { data, responce, error in
             
             if let error = error {
                 print("Error took place: \(error)")

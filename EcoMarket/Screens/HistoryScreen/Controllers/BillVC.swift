@@ -58,7 +58,6 @@ class BillVC: UIViewController {
 
 extension BillVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(orderItems.count)
         return orderItems.count
     }
     
@@ -66,11 +65,8 @@ extension BillVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: BillCell.identifier, for: indexPath) as! BillCell
         cell.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
-        let product = orderItems[indexPath.row]
         cell.configure(orderItems[indexPath.row])
-        
-//        greenView.configure(dateText: pdo, costText: <#T##String#>)
-        
+                
         return cell
     }
     

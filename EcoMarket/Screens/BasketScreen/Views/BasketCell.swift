@@ -109,7 +109,6 @@ class BasketCell: UICollectionViewCell  {
     
     func setupConstraints() {
         buttonPlus.snp.makeConstraints { make in
-//            make.bottom.equalToSuperview().inset(4)
             make.bottom.equalTo(image.snp.bottom)
             make.trailing.equalToSuperview().inset(4)
             make.leading.equalToSuperview().inset(260)

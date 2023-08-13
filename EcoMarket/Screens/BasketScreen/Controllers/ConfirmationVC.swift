@@ -67,13 +67,6 @@ class ConfirmationVC: UIViewController {
         
         vc.showAlert(vc: self, text: "Заказ №343565657 оформлен", imageText: "bagSmile", descText: "Дата и время 07.07.2023 12:46", myFunc: dismissToMainTabBar)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//              vc.dismissAlert()
-//            BasketManager.shared.clearBasket()
-//              self.dismissAndGoToMainTabBar()
-//
-//
-//          }
         
     }
     
@@ -90,11 +83,6 @@ class ConfirmationVC: UIViewController {
         }
     }
     
-    // Function to call when you want to dismiss and go to the main tab bar
-    func dismissAndGoToMainTabBar() {
-//        dismissToMainTabBar() // Dismiss the current view controller if presented modally
-        navigationController?.popToRootViewController(animated: true) // Dismiss all pushed view controllers
-    }
     
     
     
@@ -186,6 +174,6 @@ class CustomTextField: UIView {
 
 extension ConfirmationVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        updateButtonState() // Update the button's state when text changes
+        updateButtonState()
     }
 }

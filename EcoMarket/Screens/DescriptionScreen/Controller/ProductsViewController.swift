@@ -203,10 +203,7 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
             cell.configure(products[indexPath.row])
         }
 
-        if let current =  self.products[indexPath.row].id  {
-            cell.configureProduct(product: products[indexPath.row] ,indexPath: indexPath)
-        }
-        
+        cell.configureProduct(product: products[indexPath.row] ,indexPath: indexPath)
         return cell
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -224,7 +221,6 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
 extension ProductsViewController: ShowTheProducts {
     func changeSelected(_ id: Int) {
         self.selectedCategory = id
-//        textField.text = nil
         DispatchQueue.main.async {
             self.searchRecord()
             self.updateDataSource()
