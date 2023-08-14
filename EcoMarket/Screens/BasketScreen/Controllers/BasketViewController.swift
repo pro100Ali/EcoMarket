@@ -39,7 +39,8 @@ class BasketViewController: UIViewController {
     let infoDelivery = InfoLines(frame: .zero, text: "Доставка", total: 150)
     let infoInTotal = InfoLines(frame: .zero, text: "Итого", total: 150)
     
-    
+    let bg = BagView(frame: .zero)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,11 +62,28 @@ class BasketViewController: UIViewController {
         setupConstraints()
         NotificationCenter.default.addObserver(self, selector: #selector(changeTheLabelToAdd(_:)), name: .changeTheLabelToAdd, object: nil)
         
-        
+        view.addSubview(bg)
+        bg.isHidden = true
+        showBag()
     }
     
+    func addSubviewToCenter(_ subView: UIView){
+        
+        let loadingIndicatorSize: CGFloat = 50.0
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+
+        let centerX = (screenWidth - loadingIndicatorSize) / 2
+        let centerY = (screenHeight - loadingIndicatorSize) / 2
+
+        subView.frame = CGRect(x: centerX, y: centerY - 150 , width: loadingIndicatorSize, height: loadingIndicatorSize)
+    }
     
-    
+    func showBag() {
+        bg.configure("bagSad", text: "У вас нет заказа")
+        bg.isHidden = false
+        addSubviewToCenter(bg)
+    }
    
     
     @objc func buttonAction() {
@@ -121,6 +139,11 @@ class BasketViewController: UIViewController {
             self.basketProducts = BasketManager.shared.getBasketProducts()
             infoSum.updateText(BasketManager.shared.totalCost)
             infoInTotal.updateText(BasketManager.shared.totalCost + 150)
+            if basketProducts.count == 0 {
+                showBag()
+            } else {
+                bg.isHidden = true
+            }
             self.collection.reloadData()
         }
     }
