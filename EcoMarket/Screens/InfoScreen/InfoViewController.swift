@@ -58,7 +58,6 @@ class InfoViewController: UIViewController {
             if application.canOpenURL(phoneURL) {
                 application.open(phoneURL, options: [:], completionHandler: nil)
             }
-          
         }
     }
     

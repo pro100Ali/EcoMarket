@@ -68,6 +68,25 @@ class ProductCell: UICollectionViewCell {
     func configureProduct(product: Product, indexPath: IndexPath) {
         self.indexPath = indexPath
         self.product = product
+        
+        showAddButton()
+        if let quantity = BasketManager.shared.getBasketProducts().first(where: {$0.id == product.id}) {
+            buttonPlus.updateLabel(quantity.quantity!)
+            constraintsForButtoPlusMinus()
+        }
+        
+        if let urlImage = product.image {
+            image.kf.setImage(with: URL(string: urlImage))
+        }
+        
+        
+        title.text = product.title
+        guard let priceOfProduct = product.price else {return}
+        price.text = "\(String(describing: priceOfProduct)) tg"
+        
+        
+        
+        
     }
     
     override init(frame: CGRect) {
@@ -109,9 +128,7 @@ class ProductCell: UICollectionViewCell {
                 print((product?.quantity)!)
                 showAddButton()
             }
-              print("Received product data: \(product)")
-          }
-      
+          }      
     }
     
     func showAddButton() {
@@ -123,7 +140,7 @@ class ProductCell: UICollectionViewCell {
         BasketManager.shared.addProductToBasket(product!)
 //        product?.isAdded = true
 //        if product?.isAdded == true {
-            constraintsForButtoPlusMinus()
+        constraintsForButtoPlusMinus()
 
            
 //        }
@@ -142,26 +159,7 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-    func configure(_ category: Product) {
-        showAddButton()
-        if let quantity = BasketManager.shared.getBasketProducts().first(where: {$0.id == category.id}) {
-            buttonPlus.updateLabel(quantity.quantity!)
-            constraintsForButtoPlusMinus()
-            
-        }
-        
-        if let urlImage = category.image {
-            image.kf.setImage(with: URL(string: urlImage))
-        }
-
-        
-        title.text = category.title
-        guard let priceOfProduct = category.price else {return}
-        price.text = "\(String(describing: priceOfProduct)) tg"
-        
-  
-        
-    }
+//    func configure(_ category: Product)
     
     func setupConstraints() {
         image.snp.makeConstraints { make in

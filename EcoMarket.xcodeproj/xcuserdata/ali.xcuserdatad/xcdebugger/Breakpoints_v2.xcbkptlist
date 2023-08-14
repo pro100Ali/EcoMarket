@@ -46,13 +46,13 @@
             filePath = "EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "changeTheLabelToAdd(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271a9c"
+                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a83235227180f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -62,12 +62,12 @@
                   urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "684">
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "676">
                </Location>
                <Location
-                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a832352271a9c"
+                  uuid = "AA8C7C50-FD81-42A2-B602-CEF559CE46C4 - 4d7a83235227180f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -77,9 +77,9 @@
                   urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Cell/ProductCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "1840">
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "1428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -145,22 +145,6 @@
             startingLineNumber = "131"
             endingLineNumber = "131"
             landmarkName = "goTO()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6135BEDB-C5F1-4DA6-96BD-6D7B49B46608"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/HistoryScreen/Controllers/HistoryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "historyUpdated(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

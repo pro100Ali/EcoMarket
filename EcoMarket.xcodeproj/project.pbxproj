@@ -46,6 +46,8 @@
 		41D6CF332A7FE4A500CCA963 /* ButtonPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D6CF322A7FE4A500CCA963 /* ButtonPlusView.swift */; };
 		41D6CF362A801CC600CCA963 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D6CF352A801CC600CCA963 /* BasketViewController.swift */; };
 		41D6CF382A801E7E00CCA963 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D6CF372A801E7E00CCA963 /* BasketCell.swift */; };
+		41EF684B2A8A3EDA00E3B5D6 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF684A2A8A3EDA00E3B5D6 /* LoadingIndicator.swift */; };
+		41EF684D2A8A470C00E3B5D6 /* BagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF684C2A8A470C00E3B5D6 /* BagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		41D6CF322A7FE4A500CCA963 /* ButtonPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPlusView.swift; sourceTree = "<group>"; };
 		41D6CF352A801CC600CCA963 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		41D6CF372A801E7E00CCA963 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
+		41EF684A2A8A3EDA00E3B5D6 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		41EF684C2A8A470C00E3B5D6 /* BagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				419482EB2A7E6EB700EE5F54 /* ProductsViewController.swift */,
+				41EF684A2A8A3EDA00E3B5D6 /* LoadingIndicator.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				419483032A7EEBC100EE5F54 /* HeaderView.swift */,
+				41EF684C2A8A470C00E3B5D6 /* BagView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +451,8 @@
 				41834D7C2A862B0000E04379 /* InfoLines.swift in Sources */,
 				41834D8C2A86BAED00E04379 /* BillCell.swift in Sources */,
 				419482F42A7EA29200EE5F54 /* Product.swift in Sources */,
+				41EF684D2A8A470C00E3B5D6 /* BagView.swift in Sources */,
+				41EF684B2A8A3EDA00E3B5D6 /* LoadingIndicator.swift in Sources */,
 				419482EC2A7E6EB700EE5F54 /* ProductsViewController.swift in Sources */,
 				414D3F9F2A7D5CC4006BCC53 /* TabBarController.swift in Sources */,
 				419483062A7EEE4900EE5F54 /* Constants.swift in Sources */,

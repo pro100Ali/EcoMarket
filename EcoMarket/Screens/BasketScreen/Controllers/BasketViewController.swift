@@ -127,9 +127,6 @@ class BasketViewController: UIViewController {
     
     @objc func clearButtonTapped() {
         BasketManager.shared.clearBasket()
-        print(BasketManager.shared.clearBasket())
-        basketProducts.removeAll()
-        print(basketProducts)
         DispatchQueue.main.async { [self] in
             self.collection.reloadData()
         }
@@ -180,14 +177,10 @@ extension BasketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: BasketCell.identifier, for: indexPath) as! BasketCell
         cell.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1)
-        cell.configure(basketProducts[indexPath.row])
         
-        if let current = self.basketProducts[indexPath.row].id  {
-            cell.configureProduct(basketProducts[indexPath.row], indexPath)
-        }
+        cell.configureProduct(basketProducts[indexPath.row], indexPath)
         
         cell.updateCollection = {
-            print(self.basketProducts)
             self.updateDataSource()
         }
         
