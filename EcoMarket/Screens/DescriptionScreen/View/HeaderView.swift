@@ -18,7 +18,7 @@ class HeaderView: UIView {
 
     var selectedIndex: IndexPath?
 
-    var selectedIndex2: IndexPath?
+    var selectedIndexInitally: IndexPath?
 
     var viewModel: ViewModel!
 
@@ -107,7 +107,7 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         cell.configureSelection((indexPath == selectedIndex) ? .white : Constants.gray, (indexPath == selectedIndex) ? Constants.green : .white, 1)
         
       
-        if let firstIndex = selectedIndex2 {
+        if let firstIndex = selectedIndexInitally {
             cell.configureSelection((indexPath == firstIndex) ? .white : Constants.gray, (indexPath == firstIndex) ? Constants.green : .white, 1)
         }
         
@@ -132,12 +132,12 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
             
         }
         
-        if selectedIndex2 != indexPath {
+        if selectedIndexInitally != indexPath {
             
-            if let firstIndex = selectedIndex2 {
+            if let firstIndex = selectedIndexInitally {
                 guard let cell = collectionView.cellForItem(at: firstIndex) as? SegmentCollectionViewCell else { return }
                 cell.configureSelection(Constants.gray, .white, 1)
-                selectedIndex2 = nil
+                selectedIndexInitally = nil
             }
         }
         

@@ -108,7 +108,7 @@ class ProductsViewController: UIViewController {
         let searchData: Int = textField.text!.count
     
         self.bg.isHidden = true
-
+        
             if searchData == 0 {
                 searching = false
                 updateDataSource()
@@ -127,6 +127,8 @@ class ProductsViewController: UIViewController {
                 viewModel.searchProduct(textField: textField.text!, selectedCategory: selectedCategory)
                 updateDataSource()
                 print(viewModel.products)
+                bg.configure("bagSmile", text: "Ничего не нашли")
+
                 DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
                         DispatchQueue.main.async {
                             
@@ -185,7 +187,8 @@ class ProductsViewController: UIViewController {
             if !searching {
                 viewModel.products = viewModel.getProducts(for: selectedCategory)
             }
-            headerView.selectedIndex2 = IndexPath(item: selectedCategory, section: 0)
+            headerView.selectedIndexInitally = IndexPath(item: selectedCategory, section: 0)
+            print("selected category is \(selectedCategory)")
             collection.reloadData()
         }
     }

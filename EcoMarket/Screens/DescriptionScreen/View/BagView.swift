@@ -17,10 +17,13 @@ class BagView: UIView {
     }()
     
     lazy private var label: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Nothing found"
+        label.font = UIFont.systemFont(ofSize: 17.6, weight: .bold)
+        label.textColor = UIColor(red: 0.67, green: 0.67, blue: 0.68, alpha: 1)
         return label
     }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(image)
@@ -28,10 +31,15 @@ class BagView: UIView {
         setupConstraints()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(_ imageText: String, text: String) {
+        image.image = UIImage(named: imageText)
+        label.text = text
+    }
     func setupConstraints() {
         image.snp.makeConstraints { make in
             make.center.equalToSuperview()
