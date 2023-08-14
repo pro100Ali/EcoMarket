@@ -55,20 +55,17 @@ class ProductViewModel: NSObject {
             switch res {
             case .success(let success):
                 
-                if  success.isEmpty {
-                    print("empty")
-
-                }
-                else {
+           
                     var array: [Product] = []
                     for i in 0 ..< success.count {
                         if success[i].category == selectedCategory || selectedCategory == 0 {
                             array.append(success[i])
+                            print(array)
                         }
                     }
                     self.products = array
 
-                }
+                
             case .failure(let failure):
                 print(failure)
             }
