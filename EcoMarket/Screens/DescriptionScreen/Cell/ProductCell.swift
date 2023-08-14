@@ -83,10 +83,7 @@ class ProductCell: UICollectionViewCell {
         title.text = product.title
         guard let priceOfProduct = product.price else {return}
         price.text = "\(String(describing: priceOfProduct)) tg"
-        
-        
-        
-        
+
     }
     
     override init(frame: CGRect) {
@@ -159,7 +156,6 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-//    func configure(_ category: Product)
     
     func setupConstraints() {
         image.snp.makeConstraints { make in

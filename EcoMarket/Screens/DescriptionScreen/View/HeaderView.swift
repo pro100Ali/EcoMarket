@@ -106,7 +106,8 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
 
         cell.configureSelection((indexPath == selectedIndex) ? .white : Constants.gray, (indexPath == selectedIndex) ? Constants.green : .white, 1)
         
-      
+        print(indexPath)
+        print(selectedIndexInitally)
         if let firstIndex = selectedIndexInitally {
             cell.configureSelection((indexPath == firstIndex) ? .white : Constants.gray, (indexPath == firstIndex) ? Constants.green : .white, 1)
         }
@@ -131,7 +132,7 @@ extension HeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
             }, completion: nil)
             
         }
-        
+ 
         if selectedIndexInitally != indexPath {
             
             if let firstIndex = selectedIndexInitally {

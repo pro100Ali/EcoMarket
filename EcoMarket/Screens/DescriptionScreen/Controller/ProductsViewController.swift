@@ -14,8 +14,6 @@ class ProductsViewController: UIViewController {
     
     let searchController = UISearchController()
     let viewModel = ProductViewModel()
-//    var products: [Product] = []
-//    var filteredProducts = [Product]()
     var searching = false
     var selectedCategory: Int = 0
     
@@ -82,8 +80,11 @@ class ProductsViewController: UIViewController {
      
         view.addSubview(bg)
         bg.isHidden = true
+        
+   
     }
     
+ 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .changeTheLabelToAdd, object: nil)
         NotificationCenter.default.removeObserver(self, name: .basketUpdated, object: nil)
@@ -126,7 +127,6 @@ class ProductsViewController: UIViewController {
                 loadingIndicator.startAnimating()
                 viewModel.searchProduct(textField: textField.text!, selectedCategory: selectedCategory)
                 updateDataSource()
-                print(viewModel.products)
                 bg.configure("bagSmile", text: "Ничего не нашли")
 
                 DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
@@ -187,7 +187,6 @@ class ProductsViewController: UIViewController {
             if !searching {
                 viewModel.products = viewModel.getProducts(for: selectedCategory)
             }
-            headerView.selectedIndexInitally = IndexPath(item: selectedCategory, section: 0)
             print("selected category is \(selectedCategory)")
             collection.reloadData()
         }
@@ -230,7 +229,7 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as? ProductCell else { return UICollectionViewCell()}
         
    
-        if viewModel.products.count != 0 {
+        if viewModel.products.count > indexPath.row {
             cell.configureProduct(product: viewModel.products[indexPath.row] ,indexPath: indexPath)
         }
         return cell
@@ -244,12 +243,21 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         return UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = SelectionViewController()
+        vc.product = viewModel.products[indexPath.row]
+        vc.configure(vc.product!)
+
+        vc.modalPresentationStyle = .overFullScreen // Adjust the presentation style as needed
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 
 extension ProductsViewController: ShowTheProducts {
     func changeSelected(_ id: Int) {
         self.selectedCategory = id
+        
         DispatchQueue.main.async {
             self.searchRecord()
             self.updateDataSource()
