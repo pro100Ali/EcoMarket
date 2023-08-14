@@ -72,14 +72,13 @@ class ConfirmationVC: UIViewController {
     
     @objc func dismissToMainTabBar() {
         if let mainTabBarController = tabBarController as? TabBarController {
-            // Dismiss all presented view controllers on the current tab
             navigationController?.popToRootViewController(animated: false)
             mainTabBarController.selectedIndex = 0 // Select the first tab
             BasketManager.shared.clearBasket()
-            // Pop another view controller from the navigation stack
             if let viewControllerToPop = navigationController?.viewControllers.first(where: { $0 is MainViewController }) {
                 navigationController?.popToViewController(viewControllerToPop, animated: true)
             }
+            
         }
     }
     

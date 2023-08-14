@@ -9,6 +9,8 @@ import Foundation
 
 class ProductViewModel: NSObject {
     
+    var products: [Product] = []
+
     private var apiCaller: APICaller!
     
     private(set) var empData : [Product]! {
@@ -43,6 +45,32 @@ class ProductViewModel: NSObject {
 
             case .failure(let failure):
                 print("Error", failure)
+            }
+        }
+    }
+    
+    func searchProduct(textField: String, selectedCategory: Int) {
+        
+        APICaller.shared.searchProduct(char: textField) { res in
+            switch res {
+            case .success(let success):
+                
+                if  success.isEmpty {
+                    print("empty")
+
+                }
+                else {
+                    var array: [Product] = []
+                    for i in 0 ..< success.count {
+                        if success[i].category == selectedCategory || selectedCategory == 0 {
+                            array.append(success[i])
+                        }
+                    }
+                    self.products = array
+
+                }
+            case .failure(let failure):
+                print(failure)
             }
         }
     }

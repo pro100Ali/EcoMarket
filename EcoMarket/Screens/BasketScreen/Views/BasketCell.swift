@@ -92,9 +92,7 @@ class BasketCell: UICollectionViewCell  {
     func configureProduct(_ product: Product, _ indexPath: IndexPath) {
         self.indexPath = indexPath
         self.product = product
-    }
-    
-    func configure(_ product: Product) {
+        
         if let urlImage = product.image {
             image.kf.setImage(with: URL(string: urlImage))
         }
@@ -104,6 +102,8 @@ class BasketCell: UICollectionViewCell  {
         buttonPlus.score.text = "\(String(describing: quantity))"
         descriptionOfProduct.text = product.description
     }
+    
+    
     
     
     

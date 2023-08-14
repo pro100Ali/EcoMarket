@@ -14,13 +14,17 @@ class ProductsViewController: UIViewController {
     
     let searchController = UISearchController()
     let viewModel = ProductViewModel()
-    var products: [Product] = []
-    var filteredProducts = [Product]()
+//    var products: [Product] = []
+//    var filteredProducts = [Product]()
     var searching = false
     var selectedCategory: Int = 0
     
     var basketProduct = [Product]()
 
+    let loadingIndicator = LoadingIndicator(frame:.zero)
+
+
+    
     lazy private var textFieldHeightConstraint: NSLayoutConstraint = {
         return textField.heightAnchor.constraint(equalToConstant: 50)
     }()
@@ -56,7 +60,7 @@ class ProductsViewController: UIViewController {
         return collection
     }()
     
-    
+    let bg = BagView(frame: .zero)
     
     
     override func viewDidLoad() {
@@ -75,48 +79,73 @@ class ProductsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(basketUpdated(_:)), name: .basketUpdated, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(basketUpdated(_:)), name: .changeTheLabelToAdd, object: nil)
-
      
+        view.addSubview(bg)
+        bg.isHidden = true
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .changeTheLabelToAdd, object: nil)
         NotificationCenter.default.removeObserver(self, name: .basketUpdated, object: nil)
     }
+    
+    func addSubviewToCenter(_ subView: UIView){
+        view.addSubview(subView)
+        
+        let loadingIndicatorSize: CGFloat = 50.0
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
 
+        let centerX = (screenWidth - loadingIndicatorSize) / 2
+        let centerY = (screenHeight - loadingIndicatorSize) / 2
+
+        subView.frame = CGRect(x: centerX, y: centerY, width: loadingIndicatorSize, height: loadingIndicatorSize)
+    }
     
     @objc func searchRecord() {
-        self.filteredProducts.removeAll()
+        searching = true
+        collection.isHidden = true
         let searchData: Int = textField.text!.count
     
-        if searchData != 0 {
-            APICaller.shared.searchProduct(char: textField.text!) { res in
-                switch res {
-                case .success(let success):
-                    
-                    if  success.isEmpty {
-                        print("empty")
+        self.bg.isHidden = true
+
+            if searchData == 0 {
+                searching = false
+                updateDataSource()
+                self.bg.isHidden = true
+                
+                    DispatchQueue.main.async {
+                        self.collection.isHidden = false
 
                     }
-                    else {
-                        var array: [Product] = []
-                        for i in 0 ..< success.count {
-                            if success[i].category == self.selectedCategory || self.selectedCategory == 0 {
-                                array.append(success[i])
-                            }
-                        }
-                        self.products = array
-
-                    }
-                case .failure(let failure):
-                    print(failure)
-                }
             }
-        }
-        else {
-                 filteredProducts = products
-                 searching = false
-             }
+            else {
+                self.collection.isHidden = true
+                self.addSubviewToCenter(bg)
+                addSubviewToCenter(loadingIndicator)
+                loadingIndicator.startAnimating()
+                viewModel.searchProduct(textField: textField.text!, selectedCategory: selectedCategory)
+
+                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                        DispatchQueue.main.async {
+                            
+                            self.loadingIndicator.stopAnimating()
+                            self.loadingIndicator.removeFromSuperview()
+                            self.collection.reloadData()
+                            
+                            if self.viewModel.products.count != 0 {
+                                self.collection.isHidden = false
+                                self.bg.isHidden = true
+                            }
+                            else {
+                                self.bg.isHidden = false
+                            }
+
+                        }
+                    }
+            }
+         
+       
 //        if searchData != 0 {
 //            searching = true
 //            for product in products {
@@ -132,7 +161,10 @@ class ProductsViewController: UIViewController {
 //            filteredProducts = products
 //            searching = false
 //        }
-        collection.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        }
+      
+            
     }
     
     @objc func basketUpdated(_ notification: Notification) {
@@ -149,8 +181,9 @@ class ProductsViewController: UIViewController {
     
     func updateDataSource(){
         DispatchQueue.main.async { [self] in
-//            guard let data = viewModel.empData else { return }
-            products = viewModel.getProducts(for: selectedCategory)
+            if !searching {
+                viewModel.products = viewModel.getProducts(for: selectedCategory)
+            }
             headerView.selectedIndex2 = IndexPath(item: selectedCategory, section: 0)
             collection.reloadData()
         }
@@ -184,26 +217,19 @@ class ProductsViewController: UIViewController {
 extension ProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if searching {
-            return filteredProducts.count
-        }
-        else {
-            return products.count
-            
-        }
+        
+        return viewModel.products.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as? ProductCell else { return UICollectionViewCell()}
         
-        if searching {
-            cell.configure(filteredProducts[indexPath.row])
+        print(indexPath.row)
+        print(viewModel.products.count)
+        if viewModel.products.count != 0 {
+            cell.configureProduct(product: viewModel.products[indexPath.row] ,indexPath: indexPath)
         }
-        else {
-            cell.configure(products[indexPath.row])
-        }
-
-        cell.configureProduct(product: products[indexPath.row] ,indexPath: indexPath)
         return cell
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -227,6 +253,5 @@ extension ProductsViewController: ShowTheProducts {
         }
        
     }
-    
     
 }
