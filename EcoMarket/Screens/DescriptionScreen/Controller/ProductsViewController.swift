@@ -125,7 +125,8 @@ class ProductsViewController: UIViewController {
                 addSubviewToCenter(loadingIndicator)
                 loadingIndicator.startAnimating()
                 viewModel.searchProduct(textField: textField.text!, selectedCategory: selectedCategory)
-
+                updateDataSource()
+                print(viewModel.products)
                 DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
                         DispatchQueue.main.async {
                             
@@ -225,8 +226,7 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as? ProductCell else { return UICollectionViewCell()}
         
-        print(indexPath.row)
-        print(viewModel.products.count)
+   
         if viewModel.products.count != 0 {
             cell.configureProduct(product: viewModel.products[indexPath.row] ,indexPath: indexPath)
         }
