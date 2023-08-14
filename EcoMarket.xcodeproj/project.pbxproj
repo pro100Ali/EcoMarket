@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412DF5402A8AB7FE00A1AB9E /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412DF53F2A8AB7FE00A1AB9E /* SelectionViewController.swift */; };
 		4136EBF52A82C85B006525C8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4136EBF42A82C85B006525C8 /* Kingfisher */; };
 		413F882B2A84267A000AFFB5 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F882A2A84267A000AFFB5 /* HistoryViewController.swift */; };
 		413F882D2A8427B7000AFFB5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413F882C2A8427B7000AFFB5 /* Order.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		412DF53F2A8AB7FE00A1AB9E /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		413F882A2A84267A000AFFB5 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		413F882C2A8427B7000AFFB5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		413F882E2A842869000AFFB5 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				419482EB2A7E6EB700EE5F54 /* ProductsViewController.swift */,
 				41EF684A2A8A3EDA00E3B5D6 /* LoadingIndicator.swift */,
+				412DF53F2A8AB7FE00A1AB9E /* SelectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				413F88312A8435A1000AFFB5 /* SectionHeader.swift in Sources */,
 				414D3FAD2A7D807A006BCC53 /* ViewModel.swift in Sources */,
 				419482EE2A7E6EDD00EE5F54 /* ProductCell.swift in Sources */,
+				412DF5402A8AB7FE00A1AB9E /* SelectionViewController.swift in Sources */,
 				419482F82A7EB3EF00EE5F54 /* APICaller.swift in Sources */,
 				413F882B2A84267A000AFFB5 /* HistoryViewController.swift in Sources */,
 				414D3F882A7D515F006BCC53 /* AppDelegate.swift in Sources */,
