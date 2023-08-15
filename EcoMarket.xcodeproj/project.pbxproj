@@ -49,6 +49,9 @@
 		41D6CF382A801E7E00CCA963 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D6CF372A801E7E00CCA963 /* BasketCell.swift */; };
 		41EF684B2A8A3EDA00E3B5D6 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF684A2A8A3EDA00E3B5D6 /* LoadingIndicator.swift */; };
 		41EF684D2A8A470C00E3B5D6 /* BagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF684C2A8A470C00E3B5D6 /* BagView.swift */; };
+		41FFEBCE2A8BAE0700D6B268 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 41FFEBCD2A8BAE0700D6B268 /* Alamofire */; };
+		41FFEBD02A8BB02C00D6B268 /* AlamofireCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FFEBCF2A8BB02C00D6B268 /* AlamofireCaller.swift */; };
+		41FFEBD22A8BB9CC00D6B268 /* ProductDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FFEBD12A8BB9CC00D6B268 /* ProductDemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +97,8 @@
 		41D6CF372A801E7E00CCA963 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
 		41EF684A2A8A3EDA00E3B5D6 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		41EF684C2A8A470C00E3B5D6 /* BagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagView.swift; sourceTree = "<group>"; };
+		41FFEBCF2A8BB02C00D6B268 /* AlamofireCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireCaller.swift; sourceTree = "<group>"; };
+		41FFEBD12A8BB9CC00D6B268 /* ProductDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FFEBCE2A8BAE0700D6B268 /* Alamofire in Frameworks */,
 				4136EBF52A82C85B006525C8 /* Kingfisher in Frameworks */,
 				414D3F9D2A7D5C3C006BCC53 /* SnapKit in Frameworks */,
 			);
@@ -155,6 +161,7 @@
 				41834D862A86ABA500E04379 /* Extension */,
 				414D3F9E2A7D5CC4006BCC53 /* TabBarController.swift */,
 				414D3F902A7D5160006BCC53 /* Assets.xcassets */,
+				41FFEBCF2A8BB02C00D6B268 /* AlamofireCaller.swift */,
 				419482F72A7EB3EF00EE5F54 /* APICaller.swift */,
 				414D3F922A7D5160006BCC53 /* LaunchScreen.storyboard */,
 				414D3F952A7D5160006BCC53 /* Info.plist */,
@@ -240,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				413F882C2A8427B7000AFFB5 /* Order.swift */,
+				41FFEBD12A8BB9CC00D6B268 /* ProductDemo.swift */,
 				41834D842A86A2F300E04379 /* OrderDemo.swift */,
 			);
 			path = Model;
@@ -376,6 +384,7 @@
 			packageProductDependencies = (
 				414D3F9C2A7D5C3C006BCC53 /* SnapKit */,
 				4136EBF42A82C85B006525C8 /* Kingfisher */,
+				41FFEBCD2A8BAE0700D6B268 /* Alamofire */,
 			);
 			productName = EcoMarket;
 			productReference = 414D3F842A7D515F006BCC53 /* EcoMarket.app */;
@@ -409,6 +418,7 @@
 				414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4136EBF32A82C85B006525C8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				41834D762A8609BF00E04379 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				41FFEBCC2A8BAE0700D6B268 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 414D3F852A7D515F006BCC53 /* Products */;
 			projectDirPath = "";
@@ -456,6 +466,7 @@
 				41834D8C2A86BAED00E04379 /* BillCell.swift in Sources */,
 				419482F42A7EA29200EE5F54 /* Product.swift in Sources */,
 				41EF684D2A8A470C00E3B5D6 /* BagView.swift in Sources */,
+				41FFEBD02A8BB02C00D6B268 /* AlamofireCaller.swift in Sources */,
 				41EF684B2A8A3EDA00E3B5D6 /* LoadingIndicator.swift in Sources */,
 				419482EC2A7E6EB700EE5F54 /* ProductsViewController.swift in Sources */,
 				414D3F9F2A7D5CC4006BCC53 /* TabBarController.swift in Sources */,
@@ -474,6 +485,7 @@
 				414D3FA72A7D6CAA006BCC53 /* Category.swift in Sources */,
 				413F882F2A842869000AFFB5 /* OrderCell.swift in Sources */,
 				419483042A7EEBC100EE5F54 /* HeaderView.swift in Sources */,
+				41FFEBD22A8BB9CC00D6B268 /* ProductDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +729,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		41FFEBCC2A8BAE0700D6B268 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -729,6 +749,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 414D3F9B2A7D5C3C006BCC53 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		41FFEBCD2A8BAE0700D6B268 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41FFEBCC2A8BAE0700D6B268 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
