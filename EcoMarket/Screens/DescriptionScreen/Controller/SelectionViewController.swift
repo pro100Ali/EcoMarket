@@ -10,6 +10,11 @@ import SnapKit
 
 class SelectionViewController: UIViewController {
 
+//    private(set) var product: Product! {
+//           didSet {
+//               self.showAddButton()
+//           }
+//       }
     var product: Product?
 
     lazy private var imageView: UIImageView = {
@@ -68,24 +73,21 @@ class SelectionViewController: UIViewController {
 
         buttonPlus.delegate = self
         setupConstraints()
-        showAddButton()
-        
-        
-        let backgroundView = UIView(frame: view.bounds)
-        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // Adjust the alpha as needed
-        view.insertSubview(backgroundView, at: 0)
-        
-        // Add a tap gesture recognizer to the background view
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        backgroundView.addGestureRecognizer(tapGesture)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeTheLabelToAdd(_:)), name: .changeTheLabelToAdd, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(basketUpdated(_:)), name: .basketUpdated, object: nil)
+   
     }
     
-    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
-        // Dismiss the SelectionViewController when tapping outside
-        dismiss(animated: true, completion: nil)
+    @objc func changeTheLabelToAdd(_ notification: Notification) {
+        if let id = notification.object as? Int {
+
+            if product?.id == id {
+                buttonPlus.updateLabel((product?.quantity)!)
+                print((product?.quantity)!)
+                showAddButton()
+            }
+          }
     }
-    
     
     func configure(_ product: Product) {
         if let urlImage = product.image {
@@ -93,22 +95,24 @@ class SelectionViewController: UIViewController {
         }
         label.text = product.title
         price.text = product.price
+        self.product = product
+        if product.isAdded! {
+            constraintsForButtoPlusMinus()
+
+        }
 //        desc.text = product.description
         
     }
     
     @objc func clicked() {
         BasketManager.shared.addProductToBasket(product!)
-//        product?.isAdded = true
-//        if product?.isAdded == true {
+
         print("added \(product!)")
         constraintsForButtoPlusMinus()
 
 
-//        }
     }
     
-//
     func constraintsForButtoPlusMinus() {
         view.addSubview(buttonPlus)
         button.isHidden = true
@@ -213,3 +217,49 @@ class HalfScreenPresentationController: UIPresentationController {
       }
 }
 
+import UIKit
+class ForgotPasswordPresentationController: UIPresentationController{
+    let blurEffectView: UIVisualEffectView!
+    var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
+    @objc func dismiss(){
+        self.presentedViewController.dismiss(animated: true, completion: nil)
+    }
+    override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismiss))
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.blurEffectView.isUserInteractionEnabled = true
+        self.blurEffectView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    override var frameOfPresentedViewInContainerView: CGRect{
+        return CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height/2), size: CGSize(width: self.containerView!.frame.width, height: self.containerView!.frame.height/2))
+    }
+    override func dismissalTransitionWillBegin() {
+        self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
+            self.blurEffectView.alpha = 0
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) in
+            self.blurEffectView.removeFromSuperview()
+        })
+    }
+    override func presentationTransitionWillBegin() {
+        self.blurEffectView.alpha = 0
+        self.containerView?.addSubview(blurEffectView)
+        self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
+            self.blurEffectView.alpha = 1
+        }, completion: { (UIViewControllerTransitionCoordinatorContext) in
+
+        })
+    }
+    override func containerViewWillLayoutSubviews() {
+        super.containerViewWillLayoutSubviews()
+        presentedView!.layer.masksToBounds = true
+        presentedView!.layer.cornerRadius = 10
+    }
+    override func containerViewDidLayoutSubviews() {
+        super.containerViewDidLayoutSubviews()
+        self.presentedView?.frame = frameOfPresentedViewInContainerView
+        blurEffectView.frame = containerView!.bounds
+    }
+}

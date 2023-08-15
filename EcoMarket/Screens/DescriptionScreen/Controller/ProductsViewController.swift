@@ -245,10 +245,13 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = SelectionViewController()
-        vc.product = viewModel.products[indexPath.row]
-        vc.configure(vc.product!)
-
-        vc.modalPresentationStyle = .overFullScreen // Adjust the presentation style as needed
+        
+        if let presentationController = vc.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+        
+        vc.configure(viewModel.products[indexPath.row])
+        
         present(vc, animated: true, completion: nil)
     }
 }

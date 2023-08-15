@@ -11,8 +11,10 @@ class ProductViewModel: NSObject {
     
     var products: [Product] = []
 
-    private var apiCaller: APICaller!
-    
+//    private var apiCaller: APICaller!
+
+    private var alamofireCaller: AlamofireCaller!
+
     private(set) var empData : [Product]! {
            didSet {
                self.bindViewModelToController()
@@ -23,7 +25,8 @@ class ProductViewModel: NSObject {
     
     override init() {
         super.init()
-        self.apiCaller = APICaller()
+//        self.apiCaller = APICaller()
+        self.alamofireCaller = AlamofireCaller()
         callFuncToGetEmpData()
 
     }
@@ -38,7 +41,7 @@ class ProductViewModel: NSObject {
     }
     
     func callFuncToGetEmpData() {
-        self.apiCaller.getAllProducts(1) { res in
+        self.alamofireCaller.getAllProducts(1) { res in
             switch res {
             case .success(let success):
                 self.empData = success
@@ -51,7 +54,7 @@ class ProductViewModel: NSObject {
     
     func searchProduct(textField: String, selectedCategory: Int) {
         
-        APICaller.shared.searchProduct(char: textField) { res in
+        self.alamofireCaller.searchProduct(char: textField) { res in
             switch res {
             case .success(let success):
                 

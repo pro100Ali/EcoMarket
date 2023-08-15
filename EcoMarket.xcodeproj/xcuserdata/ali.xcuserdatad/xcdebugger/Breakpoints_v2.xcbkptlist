@@ -167,49 +167,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C47F55DD-722C-4D2E-904C-A0B7A25EA0B7"
+            uuid = "6898A3E1-2B9C-4716-A3A2-96D5124BFCCA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/DescriptionScreen/View/HeaderView.swift"
+            filePath = "EcoMarket/Screens/DescriptionScreen/Controller/SelectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "changeTheLabelToAdd(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4AA54563-219C-4D2D-AAB3-D741C0346880"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/DescriptionScreen/View/HeaderView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "822C896A-051F-40EB-A8DF-D70BCEF823C1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EcoMarket/Screens/DescriptionScreen/View/HeaderView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6898A3E1-2B9C-4716-A3A2-96D5124BFCCA - c2efb519514f02eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EcoMarket.SelectionViewController.changeTheLabelToAdd(Foundation.Notification) -&gt; ()"
+                  moduleName = "EcoMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Controller/SelectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "6898A3E1-2B9C-4716-A3A2-96D5124BFCCA - c2efb519514f02eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EcoMarket.SelectionViewController.changeTheLabelToAdd(Foundation.Notification) -&gt; ()"
+                  moduleName = "EcoMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ali/Desktop/EcoMarket/EcoMarket/Screens/DescriptionScreen/Controller/SelectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1428">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
         setupConstraints()
         callToViewModelForUIUpdate()
         checkConnection()
-        
+
     }
     
     func checkConnection() {

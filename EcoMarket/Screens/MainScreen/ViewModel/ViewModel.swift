@@ -9,7 +9,9 @@ import Foundation
 
 class ViewModel: NSObject {
     
-    private var apiCaller: APICaller!
+//    private var apiCaller: APICaller!
+    
+    private var alamofireCaller: AlamofireCaller!
     
     private(set) var empData : [Category]! {
            didSet {
@@ -21,7 +23,8 @@ class ViewModel: NSObject {
     
     override init() {
         super.init()
-        self.apiCaller = APICaller()
+//        self.apiCaller = APICaller()
+        self.alamofireCaller = AlamofireCaller()
         callFuncToGetEmpData()
 
     }
@@ -29,15 +32,26 @@ class ViewModel: NSObject {
     
     
     func callFuncToGetEmpData() {
-        self.apiCaller.getAllCategories { res in
+        
+        self.alamofireCaller.getAllCategories { res in
             switch res {
             case .success(let success):
                 self.empData = success
                 self.empData.sort { $0.id! < $1.id! }
-
+                
             case .failure(let failure):
                 print("Error", failure)
             }
         }
+//        self.apiCaller.getAllCategories { res in
+//            switch res {
+//            case .success(let success):
+//                self.empData = success
+//                self.empData.sort { $0.id! < $1.id! }
+//
+//            case .failure(let failure):
+//                print("Error", failure)
+//            }
+//        }
     }
 }

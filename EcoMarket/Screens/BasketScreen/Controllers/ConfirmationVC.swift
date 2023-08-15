@@ -54,7 +54,9 @@ class ConfirmationVC: UIViewController {
     }
     
     @objc func buttonAction() {
-        APICaller.shared.postTheData(basketProduct: BasketManager.shared.getBasketProducts()) { res in
+        
+        
+        AlamofireCaller.shared.postTheData(basketProduct: BasketManager.shared.getBasketProducts()) { res in
             switch res {
             case .success(let success):
                 print(success)

@@ -23,7 +23,7 @@ class ProductCell: UICollectionViewCell {
     
     var basketProduct = [Product]()
     var product: Product?
-    var updateCollection: (() -> Void)?
+//    var updateCollection: (() -> Void)?
 
     
     lazy private var image: UIImageView = {
@@ -114,7 +114,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     @objc func basketUpdated(_ notification: Notification) {
-        updateCollection?()
+//        updateCollection?()
     }
     
     @objc func changeTheLabelToAdd(_ notification: Notification) {
